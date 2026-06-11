@@ -135,7 +135,7 @@ export function HeroSection() {
         <div>
           <div className="hero-fade text-eyebrow mb-8 flex items-center gap-3">
             <span className="h-px w-10 bg-ink-mute" />
-            Nocturne / Digital Studio · Est. 2018
+            ClickMasters / Digital Studio · Est. 2018
           </div>
 
           <h1

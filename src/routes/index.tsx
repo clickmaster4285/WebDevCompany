@@ -18,9 +18,9 @@ import { Process } from "@/components/studio/Process";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nocturne — Premium Web Development Studio" },
+      { title: "ClickMasters — Premium Web Development Studio" },
       { name: "description", content: "Award-winning web development studio crafting cinematic digital products with React, Three.js and GSAP." },
-      { property: "og:title", content: "Nocturne — Premium Web Development Studio" },
+      { property: "og:title", content: "ClickMasters — Premium Web Development Studio" },
       { property: "og:description", content: "Award-winning web development studio crafting cinematic digital products with React, Three.js and GSAP." },
     ],
   }),

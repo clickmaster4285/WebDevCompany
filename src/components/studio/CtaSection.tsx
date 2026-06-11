@@ -79,7 +79,7 @@ export function CtaSection() {
           <HeroBrowserScene />
         </div>
 
-        <div className="mx-auto mt-20 grid max-w-[1100px] grid-cols-1 gap-12 md:grid-cols-[1.2fr_1fr]">
+        {/* <div className="mx-auto mt-20 grid max-w-[1100px] grid-cols-1 gap-12 md:grid-cols-[1.2fr_1fr]">
           <form className="glass rounded-3xl p-8 md:p-10" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               <Field label="Your name" placeholder="Jane Doe" />
@@ -127,8 +127,8 @@ export function CtaSection() {
             </div>
             <div className="space-y-2 text-sm">
               <div className="text-ink-mute">Email</div>
-              <a href="mailto:studio@nocturne.dev" className="text-display text-2xl text-ink hover:text-violet-soft">
-                studio@nocturne.dev
+              <a href="mailto:studio@clickmasters.dev" className="text-display text-2xl text-ink hover:text-violet-soft">
+                studio@clickmasters.dev
               </a>
             </div>
             <div className="space-y-2 text-sm">
@@ -136,7 +136,7 @@ export function CtaSection() {
               <div className="text-ink">Berlin · Lisbon · Remote</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

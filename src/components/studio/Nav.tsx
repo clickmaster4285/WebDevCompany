@@ -17,10 +17,8 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">
         <a href="#top" className="flex items-center gap-2 text-ink">
-          <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-md bg-violet/15 ring-1 ring-violet/40">
-            <span className="h-2 w-2 rounded-sm bg-violet shadow-[0_0_18px_var(--violet)]" />
-          </span>
-          <span className="text-sm font-semibold tracking-wide">NOCTURNE<span className="text-violet">.</span></span>
+      
+          <span className="text-sm font-semibold tracking-wide">ClickMasters<span className="text-violet">.</span></span>
         </a>
 
         <nav

@@ -69,9 +69,10 @@
   --ink-soft:   oklch(0.87 0.005 286);      /* #D4D4D8 */
   --ink-mute:   oklch(0.55 0.01 286);       /* #71717A */
   /* Brand */
-  --violet:      oklch(0.62 0.21 295);      /* ~#8B5CF6 */
-  --violet-soft: oklch(0.74 0.16 295);      /* ~#A78BFA */
+  --violet:      oklch(0.65 0.22 210);      /* blue base */
+  --violet-soft: oklch(0.75 0.17 210);      /* blue soft */
   --primary: var(--violet);
+
   --primary-foreground: oklch(1 0 0);
   --card: var(--surface-1);
   --card-foreground: var(--ink);
@@ -168,7 +169,7 @@
   position: relative;
 }
 
-@utility grain::after {
+@utility grain-after {
   content: "";
   position: absolute;
   inset: 0;
@@ -177,6 +178,7 @@
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
+
 
 
 

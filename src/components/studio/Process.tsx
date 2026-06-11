@@ -11,12 +11,13 @@ import process4 from "@/assets/process4.png";
 import process5 from "@/assets/process5.png";
 
 const phases = [
-  { num: "01", label: "Discovery", desc: "We map the terrain — users, market, constraints. Hypotheses are formed.", image: process1 },
-  { num: "02", label: "Strategy", desc: "We sequence the work, set the metrics, and align the team.", image: process2 },
-  { num: "03", label: "Design", desc: "Systems, motion, and interface logic come alive.", image: process3 },
-  { num: "04", label: "Development", desc: "Performance-obsessed engineering, edge to interface.", image: process4 },
-  { num: "05", label: "Launch", desc: "We ship, measure, and compound results.", image: process5 },
+  { num: "01", label: "Discovery", desc: "We map the full terrain — users, market, competitors, and constraints. Assumptions get stress-tested, blind spots get surfaced, and clear hypotheses are formed before anything else moves.", image: process1 },
+  { num: "02", label: "Strategy", desc: "We sequence the work, lock in the metrics, and align every stakeholder on what success actually looks like. No ambiguity, no drift — just a focused plan the whole team can execute against.", image: process2 },
+  { num: "03", label: "Design", desc: "Design systems, motion language, and interface logic come alive. Every decision is grounded in user behavior and brand intent — built for clarity, obsessed with feel.", image: process3 },
+  { num: "04", label: "Development", desc: "Performance-obsessed engineering from infrastructure to interface. We write clean, scalable code and sweat every interaction detail — because slow or broken isn't an option.", image: process4 },
+  { num: "05", label: "Launch", desc: "We ship with precision, measure what actually matters, and iterate fast on real data. The work doesn't stop at go-live — we compound results until the numbers prove it.", image: process5 },
 ];
+
 
 function ImagePlane({ texture, phase }: { texture: THREE.Texture | null; phase: number }) {
   const meshRef = useRef<THREE.Mesh>(null!);
@@ -150,7 +151,7 @@ export function Process() {
                       : "opacity-0 translate-y-12 pointer-events-none"
                   }`}
                 >
-                  <div className="text-mono text-[var(--cyan)] mb-4">PHASE {p.num}</div>
+                  <div className="text-mono text-primary mb-4">PHASE {p.num}</div>
                   <h3 className="text-display text-white text-[10vw] md:text-[7vw] leading-none mb-6">
                     {p.label}
                   </h3>

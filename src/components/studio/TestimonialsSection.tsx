@@ -5,7 +5,7 @@ import p2 from "@/assets/testimonial-2.jpg";
 
 const ITEMS = [
   {
-    quote: "Nocturne didn't just redesign our product — they reshaped how our team thinks about craft. Every detail compounds.",
+    quote: "ClickMasters didn't just redesign our product — they reshaped how our team thinks about craft. Every detail compounds.",
     name: "Helena Marsh",
     role: "CPO, Helix Analytics",
     portrait: p1,
