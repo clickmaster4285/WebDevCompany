@@ -20,17 +20,14 @@ export function HeroSection() {
 
         h.innerHTML = "";
 
-        // Split into words to preserve word wrapping
         const words = text.split(' ');
         const allChars: HTMLElement[] = [];
 
         words.forEach((word, wordIndex) => {
-          // Create container for each word to prevent breaking within word
           const wordContainer = document.createElement("span");
           wordContainer.style.display = "inline-block";
           wordContainer.style.whiteSpace = "nowrap";
           
-          // Create spans for each character in the word
           [...word].forEach((char) => {
             const span = document.createElement("span");
             span.textContent = char;
@@ -41,20 +38,15 @@ export function HeroSection() {
           
           h.appendChild(wordContainer);
           
-          // Add space between words (except after last word)
           if (wordIndex < words.length - 1) {
             const space = document.createElement("span");
-            space.textContent = "\u00A0"; // Non-breaking space
+            space.textContent = "\u00A0";
             space.style.display = "inline-block";
             h.appendChild(space);
           }
         });
 
-        gsap.set(allChars, {
-          yPercent: 120,
-          opacity: 0,
-        });
-
+        gsap.set(allChars, { yPercent: 120, opacity: 0 });
         gsap.to(allChars, {
           yPercent: 0,
           opacity: 1,
@@ -120,10 +112,8 @@ export function HeroSection() {
           <source src={heroVideo} type="video/mp4" />
         </video>
         
-        {/* Gradient overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
         
-        {/* Ambient glow overlay to maintain original atmosphere */}
         <div className="absolute inset-0">
           <div className="absolute -top-40 left-1/2 h-[80vh] w-[80vw] -translate-x-1/2 rounded-full"
             style={{ background: "var(--grad-fade)" }} />
@@ -132,6 +122,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-12 px-6 md:px-10 lg:grid-cols-[1.1fr_1fr]">
+        {/* Left Column */}
         <div>
           <div className="hero-fade text-eyebrow mb-8 flex items-center gap-3">
             <span className="h-px w-10 bg-ink-mute" />
@@ -186,8 +177,64 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div ref={browser} className="relative aspect-[5/4] w-full">
-          <HeroBrowserScene />
+        {/* Right Column - Compact CTA Form */}
+        <div className="hero-fade lg:pt-8">
+          <div className="rounded-3xl border border-white/10  p-6 md:p-8 backdrop-blur-2xl">
+            <div className="mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1 text-xs uppercase tracking-widest text-white/90">
+                Let’s talk
+              </div>
+              <h3 className="mt-5 text-2xl font-medium text-white leading-tight">
+                Ready to create something unforgettable?
+              </h3>
+              <p className="mt-2 text-sm text-ink-soft">
+                Tell us about your project. We reply within 24 hours.
+              </p>
+            </div>
+
+            <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Thank you! We'll get back to you soon."); }}>
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-white/80 mb-2">Your Name</label>
+                <input
+                  type="text"
+                  required
+                  className="w-full rounded-2xl border border-white/10 bg-white/10 px-5 py-3.5 text-white placeholder:text-white/40 focus:border-violet focus:outline-none focus:ring-1 focus:ring-violet"
+                  placeholder="Alex Rivera"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-white/80 mb-2">Work Email</label>
+                <input
+                  type="email"
+                  required
+                  className="w-full rounded-2xl border border-white/10 bg-white/10 px-5 py-3.5 text-white placeholder:text-white/40 focus:border-violet focus:outline-none focus:ring-1 focus:ring-violet"
+                  placeholder="hello@yourcompany.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs uppercase tracking-widest text-white/80 mb-2">Project details</label>
+                <textarea
+                  rows={3}
+                  className="w-full resize-y min-h-[100px] rounded-3xl border border-white/10 bg-white/10 px-5 py-4 text-white placeholder:text-white/40 focus:border-violet focus:outline-none focus:ring-1 focus:ring-violet"
+                  placeholder="We're launching a new brand and need a cinematic website..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="group relative w-full overflow-hidden rounded-2xl bg-primary py-4 text-sm font-semibold text-white transition-all hover:bg-primary/90 active:scale-[0.985]"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Send Message
+                
+                </span>
+              </button>
+
+              
+            </form>
+          </div>
         </div>
       </div>
 
