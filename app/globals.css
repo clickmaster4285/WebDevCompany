@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* -----------------------------
+   BASE SETUP
+------------------------------*/
+@custom-variant dark (&:is(.dark *));
+
+/* -----------------------------
+   THEME TOKENS (Tailwind v4)
+------------------------------*/
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* -----------------------------
+   DESIGN SYSTEM (YOUR STYLE)
+------------------------------*/
+:root {
+  --radius: 0.625rem;
+
+  /* background */
+  --background: oklch(0.07 0 0);
+  --foreground: oklch(1 0 0);
+
+  /* surfaces */
+  --card: oklch(0.09 0 0);
+  --popover: oklch(0.09 0 0);
+  --secondary: oklch(0.12 0 0);
+  --muted: oklch(0.12 0 0);
+
+  /* text */
+  --ink: oklch(1 0 0);
+  --ink-soft: oklch(0.87 0.005 286);
+  --ink-mute: oklch(0.55 0.01 286);
+
+  /* brand */
+  --violet: oklch(0.65 0.22 210);
+  --violet-soft: oklch(0.75 0.17 210);
+  --primary: var(--violet);
+
+  --primary-foreground: oklch(1 0 0);
+
+  /* borders */
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: var(--violet);
+
+  /* effects */
+  --grad-violet: linear-gradient(
+    135deg,
+    oklch(0.62 0.21 295),
+    oklch(0.74 0.16 295)
+  );
+
+  --grad-fade: radial-gradient(
+    60% 80% at 50% 0%,
+    oklch(0.62 0.21 295 / 0.18),
+    transparent 70%
+  );
+
+  --shadow-violet: 0 30px 80px -20px oklch(0.62 0.21 295 / 0.45);
+}
+
+/* -----------------------------
+   BASE STYLES
+------------------------------*/
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: oklch(0.62 0.21 295 / 0.45);
+    color: white;
+  }
+}
+
+/* -----------------------------
+   UTILITIES (YOUR BRAND)
+------------------------------*/
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+@utility text-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+
+@utility glass {
+  background: linear-gradient(
+    180deg,
+    oklch(1 0 0 / 0.04),
+    oklch(1 0 0 / 0.02)
+  );
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 0.08);
+}
+
+@utility violet-glow {
+  box-shadow: var(--shadow-violet);
+}
+
+/* -----------------------------
+   ANIMATED NOISE (OPTIONAL)
+------------------------------*/
+@utility grain {
+  position: relative;
+}
+
+@utility grain-after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
