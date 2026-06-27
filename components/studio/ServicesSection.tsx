@@ -1,6 +1,7 @@
 
 
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
 import devImg from "@/assets/service-dev.jpg";
@@ -69,11 +70,12 @@ export function ServicesSection() {
             key={s.title}
             className="relative flex h-[78vh] w-[88vw] max-w-[1100px] shrink-0 overflow-hidden rounded-3xl border border-white/5 bg-surface-1 md:w-[80vw]"
           >
-            <img
+            <Image
               src={s.img}
               alt={s.title}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover opacity-50"
+              fill
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/30" />

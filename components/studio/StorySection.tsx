@@ -1,6 +1,7 @@
 
 
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
 import storyImg from "@/assets/story-workstation.jpg";
@@ -88,7 +89,7 @@ export function StorySection() {
 
           <div className="col-span-12 md:col-span-7">
             <div ref={imgWrap} className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl">
-              <img
+              <Image
                 ref={img}
                 src={storyImg}
                 alt="A modern developer workstation at night"

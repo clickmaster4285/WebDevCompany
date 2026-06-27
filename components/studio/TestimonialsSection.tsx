@@ -2,6 +2,7 @@
 
 
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useGsap } from "@/lib/gsap";
 import p1 from "@/assets/testimonial-1.jpg";
@@ -65,7 +66,7 @@ export function TestimonialsSection() {
             className="t-card mx-auto grid max-w-[1300px] grid-cols-1 items-center gap-12 px-6 md:px-10 lg:grid-cols-[1fr_1.4fr]"
           >
             <div className={`relative aspect-[4/5] overflow-hidden rounded-3xl ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-              <img src={t.portrait} alt={t.name} loading="lazy" className="t-img absolute inset-0 h-full w-full object-cover" />
+              <Image src={t.portrait} alt={t.name} loading="lazy" className="t-img absolute inset-0 h-full w-full object-cover" fill />
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 text-xs uppercase tracking-[0.3em] text-ink-soft">
                 {t.role}

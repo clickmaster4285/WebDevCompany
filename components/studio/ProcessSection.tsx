@@ -43,7 +43,7 @@ export function ProcessSection() {
   useEffect(() => {
     const { gsap, ScrollTrigger } = useGsap();
     const ctx = gsap.context(() => {
-      const items = gsap.utils.toArray<HTLElement>(".process-step");
+      const items = gsap.utils.toArray<HTMLElement>(".process-step");
       const bigs = gsap.utils.toArray<HTMLElement>(".process-big");
       items.forEach((item, i) => {
         ScrollTrigger.create({

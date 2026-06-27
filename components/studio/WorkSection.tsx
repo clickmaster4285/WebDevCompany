@@ -1,6 +1,7 @@
 
 
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
 import saasImg from "@/assets/kitchenFlow.jpg";
@@ -86,7 +87,7 @@ export function WorkSection() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="relative aspect-[16/10] md:aspect-auto">
-                <img src={p.img} alt={p.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <Image src={p.img} alt={p.name} loading="lazy" className="absolute inset-0 h-full w-full object-cover" fill />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface-1/60 to-transparent" />
               </div>
               <div className="flex flex-col justify-between p-8 md:p-14">
