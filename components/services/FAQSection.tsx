@@ -3,7 +3,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion, Variants } from "framer-motion";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import { FAQ } from "@/lib/data/services";
 import { Section } from "@/components/ui/Section";
@@ -12,23 +12,45 @@ interface FAQSectionProps {
   faqs: FAQ[];
 }
 
-const itemVariants = {
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring" as const,
+      type: "spring",
       stiffness: 300,
       damping: 24,
-      delay: i * 0.06,
     },
-  }),
+  },
+};
+
+const reducedItemVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.3 },
+  },
 };
 
 export function FAQSection({ faqs }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  const activeItemVariants = shouldReduceMotion
+    ? reducedItemVariants
+    : itemVariants;
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -36,70 +58,123 @@ export function FAQSection({ faqs }: FAQSectionProps) {
 
   return (
     <Section background="gray" padding="lg">
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        {/* Header */}
         <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
+          className="mb-16 text-center"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+          }
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-            <HelpCircle className="h-4 w-4" />
+          <span className="text-eyebrow inline-flex items-center gap-2 rounded-full border border-violet/20 bg-violet/10 px-4 py-1.5 text-violet-soft">
+            <HelpCircle className="h-3.5 w-3.5" aria-hidden="true" />
             Common Questions
           </span>
-          <h2 className="heading-2 mt-4">Questions Serious Buyers Ask</h2>
+          <h2 className="text-display mt-5 text-3xl text-foreground md:text-4xl">
+            Questions Serious Buyers Ask
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            Straight answers to the things that matter most when evaluating a
+            solution.
+          </p>
         </motion.div>
 
-        <div className="space-y-3">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              className="overflow-hidden rounded-2xl border border-border/60 bg-card/80 shadow-sm transition-colors hover:border-primary/20"
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-30px" }}
-              variants={itemVariants}
-            >
-              <button
-                className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-muted/30 md:px-6"
-                onClick={() => toggle(index)}
-                aria-expanded={openIndex === index}
-              >
-                <span className="text-base font-semibold text-foreground md:text-lg">
-                  {faq.question}
-                </span>
-                <motion.span
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <ChevronDown className="h-5 w-5" />
-                </motion.span>
-              </button>
+        {/* Accordion */}
+        <motion.div
+          className="space-y-4"
+          variants={containerVariants}
+          initial={shouldReduceMotion ? false : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
 
-              <AnimatePresence initial={false}>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={
-                      shouldReduceMotion
-                        ? { duration: 0 }
-                        : { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-                    }
+            return (
+              <motion.div
+                key={index}
+                variants={activeItemVariants}
+                custom={index}
+              >
+                <div
+                  className={`group relative overflow-hidden rounded-2xl border bg-surface-1/80 transition-all duration-300 ${
+                    isOpen
+                      ? "border-violet/40 shadow-lg shadow-violet/5"
+                      : "border-border/60 hover:border-violet/30"
+                  }`}
+                >
+                  {/* Left accent indicator */}
+                  <div
+                    className={`absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-violet via-violet/60 to-violet/20 transition-opacity duration-300 ${
+                      isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-50"
+                    }`}
+                  />
+
+                  <button
+                    className={`flex w-full items-center gap-4 px-6 py-5 text-left transition-colors duration-300 md:px-7 md:py-6 ${
+                      isOpen ? "bg-violet/[0.03]" : "hover:bg-muted/30"
+                    }`}
+                    onClick={() => toggle(index)}
+                    aria-expanded={isOpen}
                   >
-                    <div className="border-t border-border/50 px-5 pb-6 pt-2 text-muted-foreground md:px-6">
-                      <p className="leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
+                    {/* Numbered badge */}
+                    <span
+                      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold transition-colors duration-300 ${
+                        isOpen
+                          ? "bg-violet text-foreground"
+                          : "bg-violet/10 text-violet"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <span className="flex-1 text-base font-semibold text-foreground md:text-lg">
+                      {faq.question}
+                    </span>
+
+                    <motion.span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
+                        isOpen
+                          ? "bg-violet text-foreground"
+                          : "bg-violet/10 text-violet group-hover:bg-violet group-hover:text-foreground"
+                      }`}
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <ChevronDown className="h-5 w-5" aria-hidden="true" />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={
+                          shouldReduceMotion
+                            ? { duration: 0 }
+                            : { duration: 0.35, ease: [0.22, 1, 0.36, 1] }
+                        }
+                      >
+                        <div className="border-t border-border/50 px-6 pb-6 pt-4 md:px-7">
+                          <p className="leading-relaxed text-muted-foreground">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </Section>
   );
