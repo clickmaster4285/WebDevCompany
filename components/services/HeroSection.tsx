@@ -43,24 +43,46 @@ interface HeroSectionProps {
   avatarImage?: string;
 }
 
+// components/services/HeroSection.tsx
+
 const getBadgeText = (slug: string | undefined): string => {
   if (!slug) return "Trusted Partner";
 
   const badges: Record<string, string> = {
-    enterprise: "Enterprise Grade",
-    saas: "SaaS Ready",
-    ecommerce: "Revenue Engine",
-    shopify: "Shopify Expert",
-    wordpress: "WordPress Pro",
-    design: "Design Excellence",
-    custom: "Bespoke Solutions",
-    application: "Built to Scale",
-    web: "Web Experts",
+    // ✅ Existing services
+    "web-development-services": "Web Experts",
+    "enterprise-web-development": "Enterprise Grade",
+    "saas-development": "SaaS Ready",
+    "ecommerce-development": "Revenue Engine",
+    "shopify-development": "Shopify Expert",
+    "wordpress-development": "WordPress Pro",
+    "web-design-services": "Design Excellence",
+    "custom-web-development": "Bespoke Solutions",
+    "web-application-development": "Built to Scale",
+    
+    // ✅ NEW SERVICES - Add these
+    "shopify-plus-development": "Shopify Plus Expert",
+    "woocommerce-development": "WooCommerce Pro",
+    "magento-development": "Magento Enterprise",
+    "headless-commerce-development": "Headless Commerce",
+    "cms-development": "CMS Specialist",
+    "ai-web-development": "AI Innovation",
+    "ai-chatbot-development": "AI Chatbot Expert",
+    "api-development": "API Architecture",
+    "website-redesign-services": "Redesign Pro",
+    "website-speed-optimization": "Speed Optimizer",
+    "website-maintenance-services": "Maintenance Pro",
+    "full-stack-development": "Full-Stack Experts",
   };
 
+  // Direct match first
+  if (badges[slug]) return badges[slug];
+
+  // Fallback partial matches
   for (const [key, value] of Object.entries(badges)) {
-    if (slug.includes(key)) return value;
+    if (slug.includes(key.replace(/-/g, ''))) return value;
   }
+  
   return "Trusted Partner";
 };
 

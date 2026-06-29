@@ -4,7 +4,7 @@
 
 import { motion, useReducedMotion, useInView, Variants } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProblemStat } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 
@@ -81,7 +81,6 @@ function AnimatedCounter({
   useEffect(() => {
     if (!isInView) return;
 
-    // Extract numeric portion
     const numericMatch = value.match(/[\d.]+/);
     if (!numericMatch) {
       setDisplayValue(value);
@@ -89,13 +88,12 @@ function AnimatedCounter({
     }
 
     const target = parseFloat(numericMatch[0]);
-    const isPercentage = value.includes("%");
+    const isPercentage = suffix === "%";
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
       const elapsed = (currentTime - startTime) / 1000;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = target * eased;
 
@@ -134,7 +132,7 @@ function StatCard({
 }: {
   stat: ProblemStat;
   index: number;
-  shouldReduceMotion: boolean | null;
+  shouldReduceMotion: boolean;
 }) {
   const suffix = stat.value.includes("%") ? "%" : "";
   const prefix = stat.value.includes("$") ? "$" : "";
@@ -152,15 +150,15 @@ function StatCard({
               transition: { type: "spring", stiffness: 400, damping: 17 },
             }
       }
-      className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-surface-1/60 p-6 text-center backdrop-blur-xl transition-colors duration-500 hover:border-destructive/25 hover:bg-surface-1/80 sm:p-8"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-surface-1/60 p-6 text-center backdrop-blur-xl transition-colors duration-500 hover:border-destructive/25 hover:bg-surface-1/80 sm:p-8"
     >
       {/* Ambient glow on hover */}
-      <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+      <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="absolute -top-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-destructive/10 blur-3xl" />
       </div>
 
       {/* Content */}
-      <div className="relative">
+      <div className="relative flex-1">
         <div className="text-display text-3xl font-semibold text-destructive sm:text-4xl md:text-5xl">
           <AnimatedCounter
             value={cleanValue}
@@ -195,18 +193,19 @@ interface ProblemSectionProps {
   stats?: ProblemStat[];
 }
 
-export function ProblemSection({ heading, content, stats }: ProblemSectionProps) {
+export function ProblemSection({
+  heading,
+  content,
+  stats,
+}: ProblemSectionProps) {
   const shouldReduceMotion = useReducedMotion();
-  const contentRef = useRef(null);
+  const isReduced = Boolean(shouldReduceMotion);
 
-  // Respect user's motion preferences
-  const motionProps = shouldReduceMotion
-    ? {}
-    : {
-        initial: "hidden",
-        whileInView: "visible",
-        viewport: { once: true, margin: "-80px" },
-      };
+  const motionPref = {
+    initial: isReduced ? "visible" : "hidden",
+    whileInView: "visible",
+    viewport: { once: true, margin: "-80px" },
+  };
 
   return (
     <Section
@@ -219,12 +218,12 @@ export function ProblemSection({ heading, content, stats }: ProblemSectionProps)
         <div className="absolute left-1/2 top-0 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-destructive/[0.03] blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-4xl">
+      <div className="relative mx-auto w-full max-w-3xl px-4 text-center sm:px-6 lg:max-w-4xl">
         {/* ── Eyebrow Badge ── */}
         <motion.div
           className="mb-6 flex justify-center"
           variants={fadeUpVariants}
-          {...motionProps}
+          {...motionPref}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-violet/20 bg-violet/10 px-4 py-1.5 text-sm font-medium text-violet">
             <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
@@ -234,30 +233,32 @@ export function ProblemSection({ heading, content, stats }: ProblemSectionProps)
 
         {/* ── Heading ── */}
         <motion.h2
-          className="text-display text-balance text-center text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl lg:text-6xl"
+          className="text-display text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl lg:text-6xl"
           variants={fadeUpVariants}
-          {...motionProps}
-          transition={{ delay: 0.1 }}
+          {...motionPref}
+          transition={{
+            duration: 0.5,
+            ease: [0.25, 0.46, 0.45, 0.94],
+            delay: 0.1,
+          }}
         >
           {heading}
         </motion.h2>
 
         {/* ── Content ── */}
         <motion.div
-          ref={contentRef}
-          className="mt-8 space-y-5 text-balance text-base leading-relaxed text-ink-soft sm:text-lg sm:leading-relaxed"
+          className="mx-auto mt-8 max-w-2xl space-y-5 text-left"
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          {...motionPref}
         >
           {content.map((paragraph, index) => (
             <motion.p
               key={index}
               variants={itemVariants}
-              className="relative pl-4 before:absolute before:left-0 before:top-2 before:h-1.5 before:w-1.5 before:rounded-full before:bg-destructive/40"
+              className="flex items-start gap-3 text-base leading-relaxed text-ink-soft sm:text-lg sm:leading-relaxed"
             >
-              {paragraph}
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive/40" />
+              <span>{paragraph}</span>
             </motion.p>
           ))}
         </motion.div>
@@ -265,18 +266,16 @@ export function ProblemSection({ heading, content, stats }: ProblemSectionProps)
         {/* ── Stats Grid ── */}
         {stats && stats.length > 0 && (
           <motion.div
-            className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+            className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
             variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
+            {...motionPref}
           >
             {stats.map((stat, index) => (
               <StatCard
                 key={index}
                 stat={stat}
                 index={index}
-                shouldReduceMotion={shouldReduceMotion}
+                shouldReduceMotion={isReduced}
               />
             ))}
           </motion.div>

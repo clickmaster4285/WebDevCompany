@@ -63,7 +63,6 @@ export async function generateMetadata({
   return {
     title: `${service.title} | ${COMPANY_NAME}`,
     description: service.metaDescription,
-    keywords: service.keywords,
     alternates: {
       canonical: canonicalUrl,
     },

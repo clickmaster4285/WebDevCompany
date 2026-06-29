@@ -1,7 +1,7 @@
 // app/services/[slug]/layout.tsx
 
 import { notFound } from "next/navigation";
-import { getServiceBySlug } from "@/lib/data/services";
+import { getServiceBySlug } from "@/data/services";
 import { Nav } from "@/components/studio/Nav";
 import { Footer } from "@/components/studio/Footer";
 import Script from "next/script";
@@ -89,12 +89,8 @@ export default async function ServiceLayout({ children, params }: LayoutProps) {
               Home
             </Link>
           </li>
-          <li className="text-gray-300">/</li>
-          <li>
-            <Link href="/services" className="text-gray-300 hover:text-blue-600 transition-colors">
-              Services
-            </Link>
-          </li>
+         
+          
           <li className="text-gray-300">/</li>
           <li className="text-gray-300 font-medium">{service.title}</li>
         </ol>
