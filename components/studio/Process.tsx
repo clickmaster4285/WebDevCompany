@@ -7,11 +7,11 @@
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// import process1 from "@/assets/process1.png";
-// import process2 from "@/assets/process2.png";
-// import process3 from "@/assets/process3.png";
-// import process4 from "@/assets/process4.png";
-// import process5 from "@/assets/process5.png";
+// import process1 from "@/public/assets/process1.png";
+// import process2 from "@/public/assets/process2.png";
+// import process3 from "@/public/assets/process3.png";
+// import process4 from "@/public/assets/process4.png";
+// import process5 from "@/public/assets/process5.png";
 
 // const phases = [
 //   { num: "01", label: "Discovery", desc: "We map the full terrain — users, market, competitors, and constraints. Assumptions get stress-tested, blind spots get surfaced, and clear hypotheses are formed before anything else moves.", image: process1 },
@@ -190,11 +190,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Import your assets
-import process1 from "@/assets/process1.png";
-import process2 from "@/assets/process2.png";
-import process3 from "@/assets/process3.png";
-import process4 from "@/assets/process4.png";
-import process5 from "@/assets/process5.png";
+import process1 from "@/public/assets/process1.png";
+import process2 from "@/public/assets/process2.png";
+import process3 from "@/public/assets/process3.png";
+import process4 from "@/public/assets/process4.png";
+import process5 from "@/public/assets/process5.png";
 
 // Ensure GSAP is registered
 gsap.registerPlugin(ScrollTrigger);

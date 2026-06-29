@@ -4,7 +4,7 @@
 
 import { motion, useReducedMotion, Variants } from "framer-motion";
 import { ArrowRight, Clock, Shield, FileText } from "lucide-react";
-import { PricingData } from "@/lib/data/services";
+import { PricingData } from "@/data/services";
 import { Button } from "@/components/ui/Button";
 
 /* ─────────────────────────────────────────────

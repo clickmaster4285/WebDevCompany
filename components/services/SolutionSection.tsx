@@ -4,7 +4,7 @@
 
 import { motion, useReducedMotion, Variants } from "framer-motion";
 import { Zap, ArrowUpRight } from "lucide-react";
-import { SolutionPillar } from "@/lib/data/services";
+import { SolutionPillar } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 

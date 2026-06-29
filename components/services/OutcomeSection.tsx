@@ -11,7 +11,7 @@ import {
   ArrowRight,
   ArrowUpRight,
 } from "lucide-react";
-import { OutcomeMetric } from "@/lib/data/services";
+import { OutcomeMetric } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 

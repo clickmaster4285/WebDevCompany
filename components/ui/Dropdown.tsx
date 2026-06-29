@@ -25,8 +25,10 @@ interface DropdownProps {
   trigger: React.ReactNode;
   sections: DropdownSection[];
   variant?: "cards" | "links";
-  layout?: "list" | "grid" | "simple-grid"; // simple-grid for clean text links
+  layout?: "list" | "grid" | "simple-grid";
   width?: string;
+  showViewAll?: boolean;
+  showSidebar?: boolean; // New prop to control sidebar visibility
 }
 
 export function Dropdown({ 
@@ -34,7 +36,9 @@ export function Dropdown({
   sections, 
   variant = "links",
   layout = "list",
-  width = "w-[680px]"
+  width = "w-[680px]",
+  showViewAll = true,
+  showSidebar = true // Default to true for backwards compatibility
 }: DropdownProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -253,8 +257,9 @@ export function Dropdown({
     );
   };
 
-  // Determine grid columns based on variant
+  // Determine grid columns based on variant and sidebar visibility
   const getGridCols = () => {
+    if (!showSidebar) return "grid-cols-1";
     if (variant === "cards") return "grid-cols-[240px_1fr]";
     if (layout === "simple-grid" || layout === "grid") return "grid-cols-[180px_1fr]";
     return "grid-cols-[200px_1fr]";
@@ -280,41 +285,43 @@ export function Dropdown({
           className={`absolute left-1/2 top-full mt-4 ${width} -translate-x-1/2 rounded-2xl border border-slate-200 bg-white shadow-2xl`}
         >
           <div className={`grid ${getGridCols()} overflow-hidden rounded-2xl`}>
-            {/* Left sidebar - Categories */}
-            <div className={`${getSidebarWidth()} bg-slate-100 p-5`}>
-              <h3 className="text-lg font-bold text-slate-950">
-                {sections[0]?.title?.split(" ")[0] || "Menu"}
-              </h3>
+            {/* Left sidebar - Categories (hidden when showSidebar is false) */}
+            {showSidebar && (
+              <div className={`${getSidebarWidth()} bg-slate-100 p-5`}>
+                <h3 className="text-lg font-bold text-slate-950">
+                  {sections[0]?.title?.split(" ")[0] || "Menu"}
+                </h3>
 
-              <div className="mt-4 space-y-2">
-                {sections.map((section) => {
-                  const isActive = activeSection.title === section.title;
+                <div className="mt-4 space-y-2">
+                  {sections.map((section) => {
+                    const isActive = activeSection.title === section.title;
 
-                  return (
-                    <button
-                      key={section.title}
-                      onMouseEnter={() => setActiveSection(section)}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        router.push(section.href);
-                        setIsOpen(false);
-                      }}
-                      className={`w-full text-left flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-medium transition ${
-                        isActive
-                          ? "bg-violet text-white shadow-lg shadow-violet/20"
-                          : "text-slate-700 hover:bg-white hover:text-violet"
-                      }`}
-                    >
-                      <span>{section.title}</span>
-                      <span className="text-xs">›</span>
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        key={section.title}
+                        onMouseEnter={() => setActiveSection(section)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          router.push(section.href);
+                          setIsOpen(false);
+                        }}
+                        className={`w-full text-left flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-medium transition ${
+                          isActive
+                            ? "bg-violet text-white shadow-lg shadow-violet/20"
+                            : "text-slate-700 hover:bg-white hover:text-violet"
+                        }`}
+                      >
+                        <span>{section.title}</span>
+                        <span className="text-xs">›</span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Right content - Items */}
-            <div className="p-5">
+            <div className={`p-5 ${!showSidebar ? "w-full" : ""}`}>
               <div className="mb-4 flex items-center justify-between">
                 <div>
                   <h3 className="text-2xl font-bold text-violet">
@@ -327,13 +334,16 @@ export function Dropdown({
                   )}
                 </div>
 
-                <Link
-                  href={activeSection.href}
-                  onClick={(e) => handleViewAll(activeSection, e)}
-                  className="flex items-center gap-1 text-sm font-medium text-violet hover:underline"
-                >
-                  View All <span>›</span>
-                </Link>
+                {/* Conditionally render View All link */}
+                {showViewAll && (
+                  <Link
+                    href={activeSection.href}
+                    onClick={(e) => handleViewAll(activeSection, e)}
+                    className="flex items-center gap-1 text-sm font-medium text-violet hover:underline"
+                  >
+                    View All <span>›</span>
+                  </Link>
+                )}
               </div>
 
               {/* Conditionally render cards or links */}

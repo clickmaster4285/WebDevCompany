@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import footerImg from "@/assets/footer.png"; // Make sure this path is correct in your project
+import footerImg from "@/public/assets/footer.png"; // Make sure this path is correct in your project
 
 // Note: Removed the unused @tanstack/react-router import to avoid bundling conflicts
 

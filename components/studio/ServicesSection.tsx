@@ -4,12 +4,12 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
-import devImg from "@/assets/service-dev.jpg";
-import designImg from "@/assets/service-design.jpg";
-import motionImg from "@/assets/service-motion.jpg";
-import saasImg from "@/assets/work-saas.jpg";
-import ecomImg from "@/assets/work-ecom.jpg";
-import corpImg from "@/assets/work-corp.jpg";
+import devImg from "@/public/assets/service-dev.jpg";
+import designImg from "@/public/assets/service-design.jpg";
+import motionImg from "@/public/assets/service-motion.jpg";
+import saasImg from "@/public/assets/work-saas.jpg";
+import ecomImg from "@/public/assets/work-ecom.jpg";
+import corpImg from "@/public/assets/work-corp.jpg";
 
 const SERVICES = [
   { n: "01", title: "Web Development", img: devImg, desc: "Full-stack engineering with React, TypeScript and edge runtimes — built for scale.", metric: ["99", "Lighthouse"] },

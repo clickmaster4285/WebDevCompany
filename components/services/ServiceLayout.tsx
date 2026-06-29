@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import Script from "next/script";
-import { ServicePageData } from "@/lib/data/services";
+import { ServicePageData } from "@/data/services";
 import { ServiceBreadcrumb } from "./ServiceBreadcrumb";
 
 interface BreadcrumbItem {

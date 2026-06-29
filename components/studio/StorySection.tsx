@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
-import storyImg from "@/assets/story-workstation.jpg";
+import storyImg from "@/public/assets/story-workstation.jpg";
 
 export function StorySection() {
   const root = useRef<HTMLElement>(null);

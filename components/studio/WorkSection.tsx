@@ -4,10 +4,10 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
-import saasImg from "@/assets/kitchenFlow.jpg";
-import fintechImg from "@/assets/work-fintech.jpg";
-import ecomImg from "@/assets/work-ecom.jpg";
-import corpImg from "@/assets/work-corp.jpg";
+import saasImg from "@/public/assets/kitchenFlow.jpg";
+import fintechImg from "@/public/assets/work-fintech.jpg";
+import ecomImg from "@/public/assets/work-ecom.jpg";
+import corpImg from "@/public/assets/work-corp.jpg";
 
 const PROJECTS = [
 {

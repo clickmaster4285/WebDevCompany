@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion, Variants } from "framer-motion";
 import { HelpCircle, ChevronDown } from "lucide-react";
-import { FAQ } from "@/lib/data/services";
+import { FAQ } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 
 interface FAQSectionProps {

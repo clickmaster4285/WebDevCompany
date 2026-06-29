@@ -2,7 +2,7 @@
 
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getServiceBySlug, getAllServiceSlugs } from "@/lib/data/services";
+import { getServiceBySlug, getAllServiceSlugs } from "@/data/services";
 
 import { HeroSection } from "@/components/services/HeroSection";
 import { CredibilityBar } from "@/components/services/CredibilityBar";

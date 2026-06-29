@@ -4,7 +4,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Layers, Check } from "lucide-react";
-import { CapabilityItem } from "@/lib/data/services";
+import { CapabilityItem } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 import { Card, CardContent } from "@/components/ui/card";
 

@@ -4,7 +4,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Check, X, Award } from "lucide-react";
-import { ComparisonOption } from "@/lib/data/services";
+import { ComparisonOption } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 import { Card, CardContent } from "@/components/ui/card";
 

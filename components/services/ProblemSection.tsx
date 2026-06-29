@@ -5,7 +5,7 @@
 import { motion, useReducedMotion, useInView, Variants } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
-import { ProblemStat } from "@/lib/data/services";
+import { ProblemStat } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 
 /* ─────────────────────────────────────────────

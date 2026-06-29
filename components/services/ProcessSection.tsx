@@ -4,7 +4,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ClipboardList, Search, Palette, Code, Rocket, LineChart } from "lucide-react";
-import { ProcessStep } from "@/lib/data/services";
+import { ProcessStep } from "@/data/services";
 import { Section } from "@/components/ui/Section";
 
 interface ProcessSectionProps {

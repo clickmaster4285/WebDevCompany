@@ -5,8 +5,8 @@ import { useState, useMemo, ChangeEvent } from "react";
 import { motion } from "framer-motion";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { TemplateCTA } from "@/components/ui/TemplateCta";
-import { caseStudyPageHeader } from "@/data/resources/case-studies/page-config";
-import { caseStudies } from "@/data/resources/case-studies/case-studies";
+import { caseStudyPageHeader } from "@/data/page-config";
+import { caseStudies } from "@/data/case-studies";
 import { Search, SlidersHorizontal, Circle, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 

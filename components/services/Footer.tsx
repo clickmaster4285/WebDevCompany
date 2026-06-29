@@ -1,7 +1,7 @@
 // components/layout/Footer.tsx
 
 import Link from 'next/link';
-import { serviceData } from '@/lib/data/services';
+import { serviceData } from '@/data/services';
 
 export function Footer() {
   const services = Object.values(serviceData);

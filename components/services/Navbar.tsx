@@ -5,7 +5,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { serviceData } from '@/lib/data/services';
+import { serviceData } from '@/data/services';
 
 export function Navbar() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
