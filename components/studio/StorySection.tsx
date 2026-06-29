@@ -54,7 +54,7 @@ export function StorySection() {
   }, []);
 
   return (
-    <section ref={root} id="story" className="relative py-32 md:py-44">
+    <section ref={root} id="story" className="relative mx-auto py-32 md:py-44 md:mx-auto">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
@@ -66,7 +66,7 @@ export function StorySection() {
               <span className="overflow-hidden inline-block"><span className="story-line inline-block text-ink-mute">Code as</span></span>{" "}
               <span className="overflow-hidden inline-block"><span className="story-line inline-block text-ink-mute">a material.</span></span>
             </h2>
-            <p className="mt-8 max-w-md text-ink-soft leading-relaxed">
+            <p className="mt-6 md:mt-8 max-w-full md:max-w-md text-sm md:text-base text-ink-soft leading-relaxed">
               We're a senior team of designers and engineers obsessed with the
               details others overlook — the easing curve on a hover, the
               twelve-millisecond paint delay, the kerning of a single headline.

@@ -19,7 +19,7 @@ import { Process } from "@/components/studio/Process";
 
 export default function ClientWrapper() {
   return (
-    <main className="relative bg-background text-ink">
+    <main className="relative w-full overflow-x-hidden bg-background text-ink">
       <Nav />
       <HeroSection />
       <Partners />

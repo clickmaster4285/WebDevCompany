@@ -72,7 +72,7 @@ function ProjectShot({
     >
       <motion.div
         style={{ scale, opacity, y }}
-        className={`relative w-[88vw] h-[78vh] rounded-2xl overflow-hidden bg-linear-to-br ${project.color}`}
+        className={`relative w-[88vw] h-[78vh] rounded-2xl overflow-hidden bg-linear-to-br  ${project.color}`}
       >
         {/* ── VIDEO BACKGROUND ── */}
         <video

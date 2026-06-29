@@ -12,7 +12,7 @@ const AWARDS = [
 export function AwardsSection() {
   return (
     <section className="relative py-32">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+      <div className="mx-auto max-w-350 px-6 md:px-10">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <div className="text-eyebrow mb-4">/ Recognition</div>
@@ -23,11 +23,11 @@ export function AwardsSection() {
           <div className="text-sm text-ink-mute">Industry awards · Featured publications</div>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-4">
           {AWARDS.map((a) => (
             <div
               key={a.n + a.y + a.d}
-              className="group relative overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br from-white/5 to-transparent p-6 transition-all duration-500 hover:-translate-y-1 hover:border-violet/40"
+              className="group relative overflow-hidden rounded-2xl border border-white/8 bg-linear-to-br from-white/5 to-transparent p-6 transition-all duration-500 hover:-translate-y-1 hover:border-violet/40"
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
               <div className="relative">

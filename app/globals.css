@@ -111,6 +111,26 @@
 .dark {
   /* Site is dark by default; mirror :root */
 }
+/* app/globals.css */
+
+/* Add this to your global CSS file */
+@layer components {
+  .section-hero {
+    @apply flex flex-col items-center justify-center py-30 bg-[#2D3649] text-center;
+  }
+  
+  .section-hero-badge {
+    @apply mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white;
+  }
+  
+  .section-hero-title {
+    @apply text-5xl font-bold tracking-tight text-white md:text-6xl;
+  }
+  
+  .section-hero-subtitle {
+    @apply mt-6 max-w-lg text-lg text-slate-400;
+  }
+}
 
 @layer base {
   * {
