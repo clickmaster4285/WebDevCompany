@@ -1,11 +1,11 @@
 // data/resources/testimonials/testimonials.ts
 import { StaticImageData } from 'next/image';
-import michelChen from "@/assets/testimonials/michel-chen.avif";
-import jessica from "@/assets/testimonials/jessica.avif";
-import williamsCarter from "@/assets/testimonials/williams carter.avif";
-import sarahCarter from "@/assets/testimonials/sarah carter.avif";
-import photo from "@/assets/testimonials/photo-1507003211169-0a1dd7228f2d.avif";
-import emily from "@/assets/testimonials/emily.avif";
+import michelChen from "@/public/assets/testimonials/michel-chen.avif";
+import jessica from "@/public/assets/testimonials/jessica.avif";
+import williamsCarter from "@/public/assets/testimonials/williams carter.avif";
+import sarahCarter from "@/public/assets/testimonials/sarah carter.avif";
+import photo from "@/public/assets/testimonials/photo-1507003211169-0a1dd7228f2d.avif";
+import emily from "@/public/assets/testimonials/emily.avif";
 
 export interface Testimonial {
   name: string;

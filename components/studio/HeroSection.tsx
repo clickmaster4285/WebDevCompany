@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useGsap } from "@/lib/gsap";
 import { HeroBrowserScene } from "./HeroBrowserScene";
-import heroVideo from "@/assets/hero.mp4";
+import heroVideo from "@/public/assets/hero.mp4";
 
 export function HeroSection() {
   const root = useRef<HTMLElement>(null);

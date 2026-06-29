@@ -4,10 +4,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-import AiVideo from "@/assets/ai.mp4";
-import WebDesign from "@/assets/web-design.mp4";
-import WebDev from "@/assets/web-dev.mp4";
-import Security from "@/assets/security.mp4";
+import AiVideo from "@/public/assets/ai.mp4";
+import WebDesign from "@/public/assets/web-design.mp4";
+import WebDev from "@/public/assets/web-dev.mp4";
+import Security from "@/public/assets/security.mp4";
 
 const projects = [
 {

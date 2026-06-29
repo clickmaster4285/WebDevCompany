@@ -5,8 +5,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useGsap } from "@/lib/gsap";
-import p1 from "@/assets/testimonial-1.jpg";
-import p2 from "@/assets/testimonial-2.jpg";
+import p1 from "@/public/assets/testimonial-1.jpg";
+import p2 from "@/public/assets/testimonial-2.jpg";
 
 const ITEMS = [
   {

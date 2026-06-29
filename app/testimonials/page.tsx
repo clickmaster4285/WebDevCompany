@@ -26,139 +26,15 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-// Import images from your assets folder
-import michelChen from "@/assets/testimonials/michel-chen.avif";
-import jessica from "@/assets/testimonials/jessica.avif";
-import williamsCarter from "@/assets/testimonials/williams carter.avif";
-import sarahCarter from "@/assets/testimonials/sarah carter.avif";
-import photo from "@/assets/testimonials/photo-1507003211169-0a1dd7228f2d.avif";
-import emily from "@/assets/testimonials/emily.avif";
-
-interface Testimonial {
-  name: string;
-  title: string;
-  description: string;
-  imageUrl: any;
-  githubUrl?: string;
-  twitterUrl?: string;
-  youtubeUrl?: string;
-  linkedinUrl?: string;
-  rating?: number;
-  company?: string;
-  industry?: string;
-  useCase?: string;
-  featured?: boolean;
-  date?: string;
-  videoUrl?: string;
-}
-
-interface TestimonialStats {
-  totalClients: number;
-  satisfactionRate: number;
-  averageRating: number;
-  projectsDelivered: number;
-}
-
-const testimonials: Testimonial[] = [
-  {
-    name: "Michael Chen",
-    title: "Senior Software Engineer, Cloud Infrastructure",
-    description:
-      "Working with this team completely changed our infrastructure game. The support and expertise were incredible. They delivered beyond our expectations and helped us scale to millions of users.",
-    imageUrl: michelChen,
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
-    rating: 5,
-    company: "CloudTech Inc.",
-    industry: "Technology",
-    useCase: "Infrastructure Scaling",
-    featured: true,
-    date: "2024-01-15",
-  },
-  {
-    name: "Jessica Roberts",
-    title: "Lead Data Scientist, InsightX",
-    description:
-      "The data analytics platform they built gave our team the confidence and tools needed for true data-driven decisions. Their dashboarding capabilities went above and beyond our expectations.",
-    imageUrl: jessica,
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
-    rating: 5,
-    company: "InsightX Analytics",
-    industry: "Data Science",
-    useCase: "Analytics Platform",
-    featured: true,
-    date: "2024-02-01",
-  },
-  {
-    name: "William Carter",
-    title: "VP Product, NovaLabs",
-    description:
-      "NovaLabs helped our products find the perfect market fit. Their engineering team exceeded every delivery milestone and provided exceptional technical leadership.",
-    imageUrl: williamsCarter,
-    githubUrl: "#",
-    twitterUrl: "#",
-    youtubeUrl: "#",
-    linkedinUrl: "#",
-    rating: 5,
-    company: "NovaLabs",
-    industry: "Product Development",
-    useCase: "Product Strategy",
-    featured: true,
-    date: "2024-02-15",
-  },
-  {
-    name: "Sarah Johnson",
-    title: "CTO, HealthTech Solutions",
-    description:
-      "Their expertise in healthcare technology was invaluable. They delivered a HIPAA-compliant platform that revolutionized how we handle patient data while maintaining the highest security standards.",
-    imageUrl: sarahCarter,
-    rating: 5,
-    company: "HealthTech Solutions",
-    industry: "Healthcare",
-    useCase: "HIPAA Compliance",
-    date: "2024-01-20",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    name: "David Park",
-    title: "VP Engineering, FinTech Innovations",
-    description:
-      "They built a robust financial platform that handles millions of transactions daily. Their attention to security and performance is unmatched in the industry.",
-    imageUrl: photo,
-    rating: 5,
-    company: "FinTech Innovations",
-    industry: "Fintech",
-    useCase: "Financial Platform",
-    date: "2024-02-10",
-  },
-  {
-    name: "Emily Rodriguez",
-    title: "Marketing Director, GrowthLab",
-    description:
-      "The marketing automation platform they developed increased our lead conversion by 150%. Their team understood our needs perfectly and delivered a solution that exceeded expectations.",
-    imageUrl: emily,
-    rating: 4,
-    company: "GrowthLab",
-    industry: "Marketing",
-    useCase: "Marketing Automation",
-    date: "2024-01-25",
-  },
-];
-
-const stats: TestimonialStats = {
-  totalClients: 500,
-  satisfactionRate: 98,
-  averageRating: 4.8,
-  projectsDelivered: 1200,
-};
-
-const industries = ["all", ...new Set(testimonials.map((t) => t.industry).filter(Boolean))];
+import { 
+  testimonials, 
+  testimonialStats, 
+  industries,
+  getTestimonialsByIndustry,
+  getFeaturedTestimonials,
+  getTestimonialsWithVideo,
+  getTestimonialByIndex
+} from "@/data/testimonials";
 
 export default function TestimonialsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -189,14 +65,10 @@ export default function TestimonialsPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const currentTestimonial = testimonials[currentIndex];
-
-  const filteredTestimonials =
-    activeFilter === "all"
-      ? testimonials
-      : testimonials.filter(
-          (t) => t.industry === activeFilter || t.useCase === activeFilter
-        );
+  const currentTestimonial = getTestimonialByIndex(currentIndex);
+  const featuredTestimonials = getFeaturedTestimonials();
+  const videoTestimonials = getTestimonialsWithVideo();
+  const filteredTestimonials = getTestimonialsByIndustry(activeFilter);
 
   const socialIcons = [
     { icon: Github, url: currentTestimonial.githubUrl, label: "GitHub" },
@@ -265,20 +137,20 @@ export default function TestimonialsPage() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
-                { icon: Users, value: stats.totalClients, label: "Clients" },
+                { icon: Users, value: testimonialStats.totalClients, label: "Clients" },
                 {
                   icon: ThumbsUp,
-                  value: `${stats.satisfactionRate}%`,
+                  value: `${testimonialStats.satisfactionRate}%`,
                   label: "Satisfaction",
                 },
                 {
                   icon: Star,
-                  value: stats.averageRating,
+                  value: testimonialStats.averageRating,
                   label: "Avg. Rating",
                 },
                 {
                   icon: Award,
-                  value: stats.projectsDelivered,
+                  value: testimonialStats.projectsDelivered,
                   label: "Projects",
                 },
               ].map((stat, idx) => (
@@ -560,25 +432,23 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials
-              .filter((t) => t.videoUrl)
-              .map((testimonial) => (
-                <div
-                  key={testimonial.name}
-                  className="group relative aspect-video bg-surface-2 rounded-2xl overflow-hidden cursor-pointer"
-                >
-                  <div className="absolute inset-0 bg-linear-to-br from-violet/30 to-purple-500/30 group-hover:from-violet/20 group-hover:to-purple-500/20 transition-all duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
-                      <Play className="w-8 h-8 text-white ml-1" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <p className="text-white font-medium">{testimonial.name}</p>
-                    <p className="text-white/80 text-sm">{testimonial.company}</p>
+            {videoTestimonials.map((testimonial) => (
+              <div
+                key={testimonial.name}
+                className="group relative aspect-video bg-surface-2 rounded-2xl overflow-hidden cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-linear-to-br from-violet/30 to-purple-500/30 group-hover:from-violet/20 group-hover:to-purple-500/20 transition-all duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300 group-hover:scale-110">
+                    <Play className="w-8 h-8 text-white ml-1" />
                   </div>
                 </div>
-              ))}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                  <p className="text-white font-medium">{testimonial.name}</p>
+                  <p className="text-white/80 text-sm">{testimonial.company}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -714,7 +584,7 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Industry-Specific Section with KPI Card Design Language */}
+      {/* Industry-Specific Section */}
       <section className="py-12 bg-surface-1">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-10">
@@ -739,7 +609,6 @@ export default function TestimonialsPage() {
                 );
                 if (industryTestimonials.length === 0) return null;
 
-                // Calculate average rating for this industry
                 const avgRating =
                   industryTestimonials.reduce((acc, t) => acc + (t.rating || 0), 0) /
                   industryTestimonials.length;
@@ -749,12 +618,10 @@ export default function TestimonialsPage() {
                     key={industry}
                     className="group relative overflow-hidden rounded-xl bg-surface-0 border border-border shadow-soft hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                   >
-                    {/* Subtle corner decorations (matching KPI Card) */}
                     <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-violet/5" />
                     <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-violet/5" />
 
                     <div className="p-6">
-                      {/* Header with Industry Name and Count */}
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center gap-3">
                           <div className="rounded-lg bg-violet/10 p-2.5 text-violet transition-colors group-hover:bg-violet/20">
@@ -781,14 +648,12 @@ export default function TestimonialsPage() {
                         )}
                       </div>
 
-                      {/* Testimonials */}
                       <div className="space-y-4 mt-2">
                         {industryTestimonials.slice(0, 2).map((t) => (
                           <blockquote
                             key={t.name}
                             className="relative pl-4 border-l-2 border-violet/40 hover:border-violet transition-colors"
                           >
-                            {/* Quote icon (subtle) */}
                             <span className="absolute -left-1 -top-1 text-violet/20 text-xs">
                               "
                             </span>
@@ -823,10 +688,8 @@ export default function TestimonialsPage() {
                         ))}
                       </div>
 
-                      {/* Bottom bar (matching KPI Card) */}
                       <div className="bg-violet/20 mt-4 h-0.5 w-16 rounded opacity-60 group-hover:w-24 transition-all duration-300" />
 
-                      {/* View all link (subtle) */}
                       <button
                         onClick={() => setActiveFilter(industry)}
                         className="mt-3 text-xs text-ink-mute hover:text-violet transition-colors flex items-center gap-1 group-hover:gap-2"

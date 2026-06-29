@@ -1,6 +1,6 @@
 // app/case-studies/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import { caseStudies } from "@/data/resources/case-studies/case-studies";
+import { caseStudies } from "@/data/case-studies";
 import { TemplateCTA } from "@/components/ui/TemplateCta";
 import {
   CaseStudyHero,
