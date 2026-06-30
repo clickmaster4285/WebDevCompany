@@ -56,7 +56,7 @@ const resourceCategories: DropdownSection[] = [
     description: "Latest insights, ideas, updates and industry articles.",
     items: blogs.slice(0, 2).map((blog) => ({
       label: blog.title,
-      href: `/blog/${blog.slug}`,
+      href: `/blogs/${blog.slug}`,
       tag: blog.category || "Insight",
       icon: blog.icon || "✍️",
       description: blog.excerpt || blog.description || "",
