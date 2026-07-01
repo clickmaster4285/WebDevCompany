@@ -161,7 +161,7 @@ if (cta.variant === "light") {
   return (
     <section className="my-16 overflow-hidden rounded-[2rem] border border-violet/20 bg-white shadow-[0_28px_100px_rgba(15,23,42,0.10)]">
       <div className="grid lg:grid-cols-[1fr_300px]">
-        <div className="relative p-7 md:p-10">
+        <div className=ward Anima"relative p-7 md:p-10">
           <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-violet/15 blur-3xl" />
 
           <div className="relative">
@@ -229,7 +229,7 @@ if (cta.variant === "light") {
               ["Timeline", "Launch-ready planning"],
             ].map(([label, value]) => (
               <div key={label} className="rounded-2xl bg-white p-4 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                <p clasward AnimasName="text-xs font-bold uppercase tracking-widest text-slate-400">
                   {label}
                 </p>
                 <p className="mt-1 text-sm font-semibold text-slate-800">
@@ -239,7 +239,7 @@ if (cta.variant === "light") {
             ))}
           </div>
         </div>
-      </div>
+      </div>ward Anima
     </section>
   );
 }
