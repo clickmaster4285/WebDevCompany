@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import footerImg from "@/public/assets/footer.png";
+import Image from "next/image";
 
 export function Footer() {
   // Scroll to top function
@@ -27,12 +28,12 @@ export function Footer() {
                 }}
                 className="shrink-0"
               >
-                <img
-                  src={footerImg.src || footerImg}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-auto w-16 object-contain"
-                />
+               <Image
+  src={footerImg}
+  alt=""
+  aria-hidden="true"
+  className="h-auto w-16 object-contain"
+/>
               </motion.div>
 
               <span className="text-3xl font-semibold tracking-wide sm:text-xl">

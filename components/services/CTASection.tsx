@@ -215,7 +215,7 @@ export function CTASection({
                 whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
               >
                 <Button
-                  variant="primary"
+                  variant="default"
                   size="lg"
                   href="#consultation"
                   className="group inline-flex items-center gap-2.5 rounded-xl bg-violet px-6 py-3 text-sm font-semibold text-white shadow-violet transition-all duration-300 hover:bg-violet-soft hover:shadow-lg hover:shadow-violet/40 focus:outline-none focus:ring-2 focus:ring-violet/50 focus:ring-offset-2 focus:ring-offset-background"
@@ -235,7 +235,7 @@ export function CTASection({
                 whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
               >
                 <Button
-                  variant="outline"
+                  variant="default"
                   size="lg"
                   href="#estimate"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-ink backdrop-blur-sm transition-all duration-300 hover:border-violet/30 hover:bg-violet/10 hover:text-violet focus:outline-none focus:ring-2 focus:ring-violet/50 focus:ring-offset-2 focus:ring-offset-background"

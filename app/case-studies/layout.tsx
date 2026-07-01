@@ -2,7 +2,7 @@
 "use client";
 import { Nav } from "@/components/studio/Nav";
 import { Footer } from "@/components/studio/Footer";
-import { Breadcrumb } from "@/components/costs/Breadcrumb";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 
 export default function CaseStudiesLayout({
   children,

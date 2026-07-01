@@ -1,5 +1,6 @@
 // components/breadcrumb/Breadcrumb.tsx
 'use client';
+import type { ReactNode } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,7 +24,7 @@ interface BreadcrumbProps {
   customLabels?: Record<string, string>;
   hideHome?: boolean;
   maxItems?: number;
-  separator?: React.ReactNode; // ✅ This is defined in the interface
+ separator?: ReactNode;// ✅ This is defined in the interface
 }
 
 function generateBreadcrumbs(

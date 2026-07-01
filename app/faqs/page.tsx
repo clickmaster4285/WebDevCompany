@@ -87,7 +87,9 @@ function FAQ1() {
     return "light";
   };
 
-  const [theme, setTheme] = useState(getRootTheme);
+  type Theme = "dark" | "light";
+
+const [theme, setTheme] = useState<Theme>("dark");
   const [introReady, setIntroReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hasEntered, setHasEntered] = useState(false);
@@ -582,9 +584,11 @@ function FAQ1() {
                   key={item.question}
                   className={`group relative overflow-hidden rounded-3xl border backdrop-blur-xl transition-all duration-500 hover:-translate-y-0.5 focus-within:-translate-y-0.5 ${palette.border} ${palette.panel} ${palette.shadow}`}
                   onMouseMove={setCardGlow}
-                  onMouseLeave={clearCardGlow}
                   onMouseEnter={() => setHoveredIndex(originalIndex)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+onMouseLeave={(event) => {
+  clearCardGlow(event);
+  setHoveredIndex(null);
+}}
                 >
                   <div
                     className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${

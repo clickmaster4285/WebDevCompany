@@ -1,12 +1,12 @@
 // components/case-study/CaseStudyHero.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { CaseStudyBreadcrumb } from './CaseStudyBreadcrumb';
-import { CaseStudyBadges } from './CaseStudyBadges';
-import { CaseStudyMetaInfo } from './CaseStudyMetaInfo';
+import { CaseStudyBreadcrumb } from "./CaseStudyBreadcrumb";
+import { CaseStudyBadges } from "./CaseStudyBadges";
+import { CaseStudyMetaInfo } from "./CaseStudyMetaInfo";
 
 interface CaseStudyHeroProps {
   title: string;
@@ -18,7 +18,6 @@ interface CaseStudyHeroProps {
   lastUpdated: string;
 }
 
-// Elegant Shape Component (from HeroGeometric)
 function ElegantShape({
   className,
   delay = 0,
@@ -44,12 +43,12 @@ function ElegantShape({
       animate={{
         opacity: 1,
         y: 0,
-        rotate: rotate,
+        rotate,
       }}
       transition={{
         duration: 2.4,
         delay,
-        ease: "easeInOut",
+        ease: [0.23, 0.86, 0.39, 0.96] as const,
         opacity: { duration: 1.2 },
       }}
       className={cn("absolute", className)}
@@ -85,6 +84,19 @@ function ElegantShape({
   );
 }
 
+const fadeUpVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      delay: 0.5 + i * 0.2,
+      ease: [0.25, 0.4, 0.25, 1] as const,
+    },
+  }),
+};
+
 export function CaseStudyHero({
   title,
   category,
@@ -94,29 +106,15 @@ export function CaseStudyHero({
   readingTime,
   lastUpdated,
 }: CaseStudyHeroProps) {
-  // Fix: Use proper Framer Motion variants with correct easing type
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0.5 + i * 0.2,
-        ease: "easeInOut",
-      },
-    }),
-  };
-
-  // Split title for gradient effect
-  const titleParts = title.split(' ');
+  const titleParts = title.split(" ");
+  const splitIndex = Math.ceil(titleParts.length / 2);
+  const firstTitlePart = titleParts.slice(0, splitIndex).join(" ");
+  const secondTitlePart = titleParts.slice(splitIndex).join(" ");
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-start overflow-hidden bg-[#030303]">
-      {/* Background gradient */}
+    <div className="relative flex min-h-screen w-full items-center justify-start overflow-hidden bg-[#030303]">
       <div className="absolute inset-0 bg-linear-to-br from-indigo-500/5 via-transparent to-rose-500/5 blur-3xl" />
 
-      {/* Animated geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape
           delay={0.3}
@@ -124,7 +122,7 @@ export function CaseStudyHero({
           height={140}
           rotate={12}
           gradient="from-indigo-500/15"
-          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+          className="left-[-10%] top-[15%] md:left-[-5%] md:top-[20%]"
         />
 
         <ElegantShape
@@ -133,7 +131,7 @@ export function CaseStudyHero({
           height={120}
           rotate={-15}
           gradient="from-rose-500/15"
-          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+          className="right-[-5%] top-[70%] md:right-[0%] md:top-[75%]"
         />
 
         <ElegantShape
@@ -142,7 +140,7 @@ export function CaseStudyHero({
           height={80}
           rotate={-8}
           gradient="from-violet-500/15"
-          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+          className="bottom-[5%] left-[5%] md:bottom-[10%] md:left-[10%]"
         />
 
         <ElegantShape
@@ -151,7 +149,7 @@ export function CaseStudyHero({
           height={60}
           rotate={20}
           gradient="from-amber-500/15"
-          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+          className="right-[15%] top-[10%] md:right-[20%] md:top-[15%]"
         />
 
         <ElegantShape
@@ -160,14 +158,12 @@ export function CaseStudyHero({
           height={40}
           rotate={-25}
           gradient="from-cyan-500/15"
-          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+          className="left-[20%] top-[5%] md:left-[25%] md:top-[10%]"
         />
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Breadcrumb - Left aligned */}
+      <div className="container relative z-10 mx-auto px-4 md:px-6">
+        <div className="mx-auto max-w-4xl">
           <motion.div
             custom={0}
             variants={fadeUpVariants}
@@ -178,7 +174,6 @@ export function CaseStudyHero({
             <CaseStudyBreadcrumb title={title} />
           </motion.div>
 
-          {/* Badges - Left aligned */}
           <motion.div
             custom={0.5}
             variants={fadeUpVariants}
@@ -186,56 +181,54 @@ export function CaseStudyHero({
             animate="visible"
             className="mb-6"
           >
-            <CaseStudyBadges category={category} status={status} contract={contract} />
+            <CaseStudyBadges
+              category={category}
+              status={status}
+              contract={contract}
+            />
           </motion.div>
 
-          {/* Title with gradient effect */}
           <motion.div
             custom={1}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-left">
-              <span className="bg-clip-text text-transparent bg-linear-to-b from-white to-white/80">
-                {titleParts.slice(0, Math.ceil(titleParts.length / 2)).join(' ')}
+            <h1 className="mb-6 text-left text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              <span className="bg-linear-to-b from-white to-white/80 bg-clip-text text-transparent">
+                {firstTitlePart}
               </span>
-              {titleParts.length > 1 && (
+
+              {secondTitlePart && (
                 <>
-                  {' '}
-                  <span
-                    className={cn(
-                      "bg-clip-text text-transparent bg-linear-to-r from-indigo-300 via-white/90 to-rose-300"
-                    )}
-                  >
-                    {titleParts.slice(Math.ceil(titleParts.length / 2)).join(' ')}
+                  {" "}
+                  <span className="bg-linear-to-r from-indigo-300 via-white/90 to-rose-300 bg-clip-text text-transparent">
+                    {secondTitlePart}
                   </span>
                 </>
               )}
             </h1>
           </motion.div>
 
-          {/* Meta Info - Left aligned */}
           <motion.div
             custom={2}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
           >
-            <CaseStudyMetaInfo 
-              location={location} 
-              readingTime={readingTime} 
-              lastUpdated={lastUpdated} 
+            <CaseStudyMetaInfo
+              location={location}
+              readingTime={readingTime}
+              lastUpdated={lastUpdated}
             />
           </motion.div>
 
-          {/* Optional: Decorative indicator */}
           <motion.div
             custom={2.5}
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="mt-8 flex items-center gap-2 text-white/20 text-sm"
+            className="mt-8 flex items-center gap-2 text-sm text-white/20"
           >
             <Circle className="h-2 w-2 fill-rose-500/80" />
             <span className="tracking-wide">Case Study</span>
@@ -243,8 +236,7 @@ export function CaseStudyHero({
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute inset-0 bg-linear-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-[#030303] via-transparent to-[#030303]/80" />
     </div>
   );
 }

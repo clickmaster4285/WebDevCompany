@@ -51,17 +51,17 @@ const resourceCategories: DropdownSection[] = [
     })),
   },
   {
-    title: "Blogs",
-    href: "/blogs",
-    description: "Latest insights, ideas, updates and industry articles.",
-    items: blogs.slice(0, 2).map((blog) => ({
-      label: blog.title,
-      href: `/blogs/${blog.slug}`,
-      tag: blog.category || "Insight",
-      icon: blog.icon || "✍️",
-      description: blog.excerpt || blog.description || "",
-    })),
-  },
+  title: "Blogs",
+  href: "/blogs",
+  description: "Latest insights, ideas, updates and industry articles.",
+  items: blogs.slice(0, 2).map((blog) => ({
+    label: blog.title,
+    href: `/blogs/${blog.slug}`,
+    tag: blog.category || "Insight",
+    icon: "✍️",
+    description: blog.excerpt || "",
+  })),
+},
   {
     title: "FAQs",
     href: "/faqs",

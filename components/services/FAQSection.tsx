@@ -57,7 +57,7 @@ export function FAQSection({ faqs }: FAQSectionProps) {
   };
 
   return (
-    <Section background="gray" padding="lg">
+    <Section background="default" padding="lg">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         {/* Header */}
         <motion.div
