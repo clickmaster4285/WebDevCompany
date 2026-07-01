@@ -249,7 +249,7 @@ export default function CaseStudiesPage() {
 
         {/* Bottom gradient fade */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
-      </section>
+      </section>Link
 
       {/* Results Section */}
       <section className="relative bg-[#030303] py-12 md:py-16 lg:py-20">
@@ -299,7 +299,7 @@ export default function CaseStudiesPage() {
                     imageHoverScale={1.08}
                   />
                 </motion.div>
-              ))}
+              ))}Link
             </div>
           ) : (
             <motion.div
