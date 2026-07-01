@@ -18,7 +18,7 @@ export function BlogsHero() {
           Expert insights, guides, industry trends and practical advice to help
           you build, scale and grow digital products.
         </p>
-      </div>
+      </div>  
     </section>
   );
 }
