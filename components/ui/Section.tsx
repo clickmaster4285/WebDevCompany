@@ -3,13 +3,41 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
+type BackgroundVariant =
+  | "default"
+  | "surface"
+  | "violet"
+  | "transparent";
+
+type PaddingVariant =
+  | "none"
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl";
+
 interface SectionProps {
   children: ReactNode;
-  background?: "default" | "--violet" | "violet" | "transparent";
-  padding?: "none" | "sm" | "md" | "lg" | "xl";
+  background?: BackgroundVariant;
+  padding?: PaddingVariant;
   className?: string;
   id?: string;
 }
+
+const bgClasses: Record<BackgroundVariant, string> = {
+  default: "bg-surface-0",
+  surface: "bg-surface-1/50 backdrop-blur-sm",
+  violet: "bg-violet/10",
+  transparent: "bg-transparent",
+};
+
+const paddingClasses: Record<PaddingVariant, string> = {
+  none: "py-0",
+  sm: "py-8 md:py-12",
+  md: "py-12 md:py-16",
+  lg: "py-16 md:py-24",
+  xl: "py-20 md:py-32",
+};
 
 export function Section({
   children,
@@ -18,21 +46,6 @@ export function Section({
   className,
   id,
 }: SectionProps) {
-  const bgClasses = {
-    default: "bg-surface-0",
-    surface: "bg-surface-1/50 backdrop-blur-sm",
-    violet: "bg-violet/10",
-    transparent: "bg-transparent",
-  };
-
-  const paddingClasses = {
-    none: "py-0",
-    sm: "py-8 md:py-12",
-    md: "py-12 md:py-16",
-    lg: "py-16 md:py-24",
-    xl: "py-20 md:py-32",
-  };
-
   return (
     <section
       id={id}

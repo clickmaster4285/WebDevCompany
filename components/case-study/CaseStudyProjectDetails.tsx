@@ -1,4 +1,6 @@
 // components/case-study/CaseStudyProjectDetails.tsx
+
+import type { LucideIcon } from "lucide-react";
 import {
   Building2,
   Globe,
@@ -10,39 +12,43 @@ import {
   Calendar,
   User,
   Users,
-} from 'lucide-react';
+} from "lucide-react";
 
 interface CaseStudyProjectDetailsProps {
-  projectDetails: Record<string, string | number>;
+  projectDetails?: Record<string, string | number | undefined | null>;
   className?: string;
 }
 
-export function CaseStudyProjectDetails({ 
-  projectDetails, 
-  className = '' 
+type DetailConfigItem = {
+  icon: LucideIcon;
+  label: string;
+};
+
+export function CaseStudyProjectDetails({
+  projectDetails,
+  className = "",
 }: CaseStudyProjectDetailsProps) {
   if (!projectDetails || Object.keys(projectDetails).length === 0) {
     return null;
   }
 
-  // Map project detail keys to icons and display names
-  const detailConfig: Record<string, { icon: React.ElementType; label: string }> = {
-    sector: { icon: Building2, label: 'SECTOR' },
-    country: { icon: Globe, label: 'COUNTRY' },
-    region: { icon: Globe, label: 'REGION' },
-    status: { icon: Clock, label: 'STATUS' },
-    contract: { icon: FileText, label: 'CONTRACT' },
-    techStackCount: { icon: Cpu, label: 'TECH STACK' },
-    readingTime: { icon: BookOpen, label: 'READING TIME' },
-    ipOwnership: { icon: Shield, label: 'IP OWNERSHIP' },
-    lastUpdated: { icon: Calendar, label: 'LAST UPDATED' },
-    writtenBy: { icon: User, label: 'WRITTEN BY' },
-    reviewedBy: { icon: Users, label: 'REVIEWED BY' },
+  const detailConfig: Record<string, DetailConfigItem> = {
+    sector: { icon: Building2, label: "SECTOR" },
+    country: { icon: Globe, label: "COUNTRY" },
+    region: { icon: Globe, label: "REGION" },
+    status: { icon: Clock, label: "STATUS" },
+    contract: { icon: FileText, label: "CONTRACT" },
+    techStackCount: { icon: Cpu, label: "TECH STACK" },
+    readingTime: { icon: BookOpen, label: "READING TIME" },
+    ipOwnership: { icon: Shield, label: "IP OWNERSHIP" },
+    lastUpdated: { icon: Calendar, label: "LAST UPDATED" },
+    writtenBy: { icon: User, label: "WRITTEN BY" },
+    reviewedBy: { icon: Users, label: "REVIEWED BY" },
   };
 
-  // Filter to only show details that exist in the config
   const visibleDetails = Object.entries(projectDetails).filter(
-    ([key]) => key in detailConfig
+    ([key, value]) =>
+      key in detailConfig && value !== undefined && value !== null && value !== ""
   );
 
   if (visibleDetails.length === 0) {
@@ -50,28 +56,33 @@ export function CaseStudyProjectDetails({
   }
 
   return (
-    <div className={`bg-surface-1 rounded-2xl shadow-soft border border-border p-6 lg:p-8 ${className}`}>
-      <h2 className="text-xs font-semibold uppercase tracking-wider text-ink-mute mb-6">
+    <div
+      className={`rounded-2xl border border-border bg-surface-1 p-6 shadow-soft lg:p-8 ${className}`}
+    >
+      <h2 className="mb-6 text-xs font-semibold uppercase tracking-wider text-ink-mute">
         Project Details
       </h2>
-      
+
       <dl className="space-y-4">
         {visibleDetails.map(([key, value]) => {
-          const config = detailConfig[key as keyof typeof detailConfig];
+          const config = detailConfig[key];
+
           if (!config) return null;
-          
+
           const Icon = config.icon;
-          
+
           return (
             <div key={key} className="flex items-start gap-4">
-              <div className="shrink-0 w-5 h-5 mt-0.5">
-                <Icon className="h-5 w-5 text-ink-mute" />
+              <div className="mt-0.5 h-5 w-5 shrink-0">
+                <Icon aria-hidden="true" className="h-5 w-5 text-ink-mute" />
               </div>
-              <div className="flex-1 min-w-0">
+
+              <div className="min-w-0 flex-1">
                 <dt className="text-xs font-semibold uppercase tracking-wider text-ink-mute">
                   {config.label}
                 </dt>
-                <dd className="text-sm font-medium text-ink mt-1">
+
+                <dd className="mt-1 text-sm font-medium text-ink">
                   {String(value)}
                 </dd>
               </div>

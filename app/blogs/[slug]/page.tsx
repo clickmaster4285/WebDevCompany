@@ -234,9 +234,33 @@ function CTASection({ cta }: { cta: any }) {
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
+
+        <div className="border-t border-slate-100 bg-slate-50 p-7 lg:border-l lg:border-t-0">
+          <p className="text-[11px] font-black uppercase tracking-[0.25em] text-slate-400">
+            Fit Check
+          </p>
+
+          <div className="mt-5 space-y-4">
+            {[
+              ["Scope", "Website / SaaS / Commerce"],
+              ["Budget", "Clear range discussion"],
+              ["Timeline", "Launch-ready planning"],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-2xl bg-white p-4 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                  {label}
+                </p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">
+                  {value}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>ward Anima
+    </section>
+  );
+}
 
   return (
     <section className="my-20 overflow-hidden rounded-[2.5rem] bg-[#101827] p-1 shadow-[0_30px_100px_rgba(15,23,42,0.35)]">

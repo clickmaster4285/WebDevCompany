@@ -1,33 +1,13 @@
-// app/faqs/layout.tsx
+import type { ReactNode } from "react";
 import { Nav } from "@/components/studio/Nav";
 import { Footer } from "@/components/studio/Footer";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 
-export default function FAQsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function FAQsLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col bg-slate-100 text-slate-900">
       <Nav />
-
-      {/* Breadcrumb - Below Nav */}
-      <div className="border-b border-white/[0.06] bg-surface-1/40 backdrop-blur-sm mt-[80px] md:mt-[100px]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <Breadcrumb
-            customLabels={{
-              'faqs': 'FAQs',
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <main className="grow">
-        {children}
-      </main>
-
+      <main className="grow">{children}</main>
       <Footer />
     </div>
   );
