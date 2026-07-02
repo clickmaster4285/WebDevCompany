@@ -103,7 +103,7 @@ export function CaseStudyHero({
       transition: {
         duration: 1,
         delay: 0.5 + i * 0.2,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     }),
   };

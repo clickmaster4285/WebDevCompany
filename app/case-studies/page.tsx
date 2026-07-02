@@ -117,7 +117,7 @@ export default function CaseStudiesPage() {
       transition: {
         duration: 0.8,
         delay: 0.3 + i * 0.1,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: [0.25, 0.4, 0.25, 1] as const,
       },
     }),
   };
@@ -283,23 +283,15 @@ export default function CaseStudiesPage() {
                   <CaseStudyCard
                     key={study.id}
                     slug={study.slug || study.id}
-                    icon={study.icon}
                     category={study.category}
                     location={study.location}
                     title={study.title}
                     description={study.description}
                     techStack={study.techStack}
                     imageUrl={study.imageUrl}
-                    // InflectedCard props for dark theme
-                    parentBackgroundColor="#0A0A0A"
-                    titleColor="#FFFFFF"
-                    descriptionColor="#A1A1AA"
-                    buttonBackgroundColor="#4F46E5"
-                    buttonBackgroundHoverColor="#6366F1"
-                    imageHoverScale={1.08}
                   />
                 </motion.div>
-              ))}Link
+              ))}
             </div>
           ) : (
             <motion.div

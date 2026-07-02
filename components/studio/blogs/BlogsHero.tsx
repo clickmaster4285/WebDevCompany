@@ -1,12 +1,6 @@
-import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb"; // apna actual path use karo
-
 export function BlogsHero() {
   return (
-    <section className="bg-[#182332] px-6 pb-24 pt-32 text-white">
-      <div className="mx-auto max-w-7xl">
-        <Breadcrumb />
-      </div>
-
+    <section className="bg-background px-6 pb-24 pt-32 text-white">
       <div className="mx-auto mt-14 max-w-4xl text-center">
         <span className="rounded-full bg-white/10 px-4 py-2 text-xs font-semibold tracking-wider">
           RESOURCES

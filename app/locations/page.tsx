@@ -1,7 +1,6 @@
 // app/location/page.tsx
 
 import { Metadata } from 'next';
-import { Breadcrumb } from '@/components/breadcrumb/Breadcrumb';
 import LocationsContent from './LocationsContent';
 
 export const metadata: Metadata = {
@@ -10,18 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function LocationsPage() {
-  return (
-    <>
-      {/* Breadcrumb is INSIDE the page content */}
-      <div className="border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <Breadcrumb 
-            customLabels={{ 'locations': 'Locations' }}
-            className="py-3"
-          />
-        </div>
-      </div>
-      <LocationsContent />
-    </>
-  );
+  return <LocationsContent />;
 }

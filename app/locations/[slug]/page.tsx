@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getLocationPageBySlug, getAllLocationSlugs } from '@/data/locationdata';
 import { LocationPage } from '@/components/locations/LocationPage';
-import { Breadcrumb } from '@/components/breadcrumb/Breadcrumb';
 
 export async function generateStaticParams() {
   const slugs = getAllLocationSlugs();
@@ -49,24 +48,5 @@ export default async function LocationPageRoute({
     notFound();
   }
 
-  // Custom labels for location breadcrumbs
-  const customLabels = {
-    'locations': 'Locations',
-    [slug]: pageData.city,
-  };
-
-  return (
-    <>
-      {/* Breadcrumb is INSIDE the page content */}
-      <div className="border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-4">
-          <Breadcrumb 
-            customLabels={customLabels}
-            className="py-3"
-          />
-        </div>
-      </div>
-      <LocationPage data={pageData} />
-    </>
-  );
+  return <LocationPage data={pageData} />;
 }

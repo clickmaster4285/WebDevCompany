@@ -97,28 +97,10 @@ export default function LocationsContent() {
                 )}
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <span className="text-sm text-ink-mute mr-1">Filter:</span>
-                {states.map((state) => (
-                  <button
-                    key={state}
-                    onClick={() => setSelectedState(state)}
-                    aria-pressed={selectedState === state}
-                    className={`px-3 py-1.5 text-xs rounded-full transition-all ${
-                      selectedState === state
-                        ? 'bg-violet text-white'
-                        : 'glass text-ink-soft hover:text-ink border border-white/5 hover:border-white/10'
-                    }`}
-                  >
-                    {state === 'all' ? 'All' : state}
-                  </button>
-                ))}
-              </div>
+              
             </div>
 
-            <div className="mt-4 text-sm text-ink-mute">
-              {filteredLocations.length} {filteredLocations.length === 1 ? 'location' : 'locations'} found
-            </div>
+            
           </motion.div>
         </div>
       </section>
@@ -249,4 +231,4 @@ export default function LocationsContent() {
       </section>
     </div>
   );
-}
+} 

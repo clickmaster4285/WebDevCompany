@@ -20,15 +20,13 @@ export default async function ServiceLayout({ children, params }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Nav is fixed, so it doesn't take space in the flow */}
       <Nav />
-      
-      {/* This div pushes everything below the fixed nav */}
+
       <div className="flex-1 pt-[80px] md:pt-[100px]">
         {/* Breadcrumb - Below Nav */}
-        <div className="border-b border-border/60 border-gray-100/80 text-white">
-          <div className="container mx-auto px-4">
-            <Breadcrumb 
+        <div className="border-b border-white/[0.06] bg-surface-1/40 backdrop-blur-sm">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <Breadcrumb
               customLabels={{
                 'services': 'Services',
                 [resolvedParams.slug]: service.title
@@ -37,13 +35,12 @@ export default async function ServiceLayout({ children, params }: LayoutProps) {
           </div>
         </div>
 
-        {/* Main Content - Renders your page.tsx */}
+        {/* Main Content */}
         <main>
           {children}
         </main>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

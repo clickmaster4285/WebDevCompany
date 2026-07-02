@@ -386,6 +386,366 @@ export const houstonLocation: LocationPageData = {
 };
 
 // ============================================
+// 13. SAN FRANCISCO
+// ============================================
+export const sanFranciscoLocation: LocationPageData = {
+  slug: "web-development-company-san-francisco",
+  title: "Web Development Company San Francisco",
+  metaDescription: "Senior-led web development company serving San Francisco and San Francisco Bay Area. Conversion-engineered sites, stores, and applications for AI, SaaS, and fintech sectors. Fair, transparent pricing.",
+  city: "San Francisco",
+  state: "CA",
+  region: "San Francisco Bay Area",
+  pageGoal: "Rank for \"web development company San Francisco\" and related local terms; convert San Francisco-area buyers with locally-relevant credibility; project value $20K–$250K+.",
+  buyerPersona: "San Francisco-area AI, SaaS, fintech, venture-backed startups, and professional services seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving San Francisco and San Francisco Bay Area — senior-led, conversion-focused, and fluent in the AI, SaaS, and fintech sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["AI & technology", "SaaS & cloud", "fintech", "venture-backed startups", "professional services"],
+  pricingRange: "$20K–$250K+",
+  credibilityBar: [
+    "Serving San Francisco & San Francisco Bay Area",
+    "AI, SaaS, and fintech fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a San Francisco web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For San Francisco businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — AI, SaaS, and fintech. San Francisco-area web development typically ranges $20K–$250K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands San Francisco Bay Area's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "San Francisco Bay Area",
+  pageNumber: 143
+};
+
+// ============================================
+// 14. SAN DIEGO
+// ============================================
+export const sanDiegoLocation: LocationPageData = {
+  slug: "web-development-company-san-diego",
+  title: "Web Development Company San Diego",
+  metaDescription: "Senior-led web development company serving San Diego and San Diego County. Conversion-engineered sites, stores, and applications for biotech, healthcare, and tech sectors. Fair, transparent pricing.",
+  city: "San Diego",
+  state: "CA",
+  region: "San Diego County",
+  pageGoal: "Rank for \"web development company San Diego\" and related local terms; convert San Diego-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "San Diego-area biotech, healthcare, defense, tourism, and tech startups seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving San Diego and San Diego County — senior-led, conversion-focused, and fluent in the biotech, healthcare, and tech sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["biotech & life sciences", "healthcare", "defense & government", "tourism & hospitality", "technology startups"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving San Diego & San Diego County",
+    "Biotech, healthcare, and tech fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a San Diego web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For San Diego businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — biotech, healthcare, and tech. San Diego-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands San Diego County's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "San Diego County",
+  pageNumber: 144
+};
+
+// ============================================
+// 15. SAN JOSE
+// ============================================
+export const sanJoseLocation: LocationPageData = {
+  slug: "web-development-company-san-jose",
+  title: "Web Development Company San Jose",
+  metaDescription: "Senior-led web development company serving San Jose and Silicon Valley. Conversion-engineered sites, stores, and applications for enterprise tech and deep tech sectors. Fair, transparent pricing.",
+  city: "San Jose",
+  state: "CA",
+  region: "Silicon Valley",
+  pageGoal: "Rank for \"web development company San Jose\" and related local terms; convert San Jose-area buyers with locally-relevant credibility; project value $20K–$250K+.",
+  buyerPersona: "San Jose-area hardware, semiconductors, enterprise tech, and deep-tech startups seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving San Jose and Silicon Valley — senior-led, conversion-focused, and fluent in the enterprise tech and deep tech sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["semiconductors & hardware", "enterprise technology", "deep tech", "SaaS & software", "professional services"],
+  pricingRange: "$20K–$250K+",
+  credibilityBar: [
+    "Serving San Jose & Silicon Valley",
+    "Enterprise tech and deep tech fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a San Jose web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For San Jose businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — enterprise tech and deep tech. San Jose-area web development typically ranges $20K–$250K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Silicon Valley's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Silicon Valley",
+  pageNumber: 145
+};
+
+// ============================================
+// 16. WASHINGTON D.C.
+// ============================================
+export const washingtonDcLocation: LocationPageData = {
+  slug: "web-development-company-washington-dc",
+  title: "Web Development Company Washington, D.C.",
+  metaDescription: "Senior-led web development company serving Washington, D.C. and DC Metro / DMV. Conversion-engineered sites for government, nonprofits, and associations. Fair, transparent pricing.",
+  city: "Washington, D.C.",
+  state: "DC",
+  region: "DC Metro / DMV",
+  pageGoal: "Rank for \"web development company Washington, D.C.\" and related local terms; convert Washington, D.C.-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "Washington, D.C.-area government, nonprofits, associations, healthcare, and professional services seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Washington, D.C. and DC Metro / DMV — senior-led, conversion-focused, and fluent in the government, nonprofits, and associations sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["government & contracting", "nonprofits & associations", "healthcare & research", "professional services", "education"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving Washington, D.C. & DC Metro / DMV",
+    "Government, nonprofits, and associations fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Washington, D.C. web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Washington, D.C. businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — government, nonprofits, and associations. Washington, D.C.-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands DC Metro / DMV's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "DC Metro / DMV",
+  pageNumber: 146
+};
+
+// ============================================
+// 17. PHILADELPHIA
+// ============================================
+export const philadelphiaLocation: LocationPageData = {
+  slug: "web-development-company-philadelphia",
+  title: "Web Development Company Philadelphia",
+  metaDescription: "Senior-led web development company serving Philadelphia and Greater Philadelphia. Conversion-engineered sites for healthcare, education, and pharma sectors. Fair, transparent pricing.",
+  city: "Philadelphia",
+  state: "PA",
+  region: "Greater Philadelphia",
+  pageGoal: "Rank for \"web development company Philadelphia\" and related local terms; convert Philadelphia-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "Philadelphia-area healthcare, education, pharma, finance, and B2B seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Philadelphia and Greater Philadelphia — senior-led, conversion-focused, and fluent in the healthcare, education, and pharma sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["healthcare & 'eds and meds'", "pharmaceuticals", "education", "financial services", "B2B & manufacturing"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving Philadelphia & Greater Philadelphia",
+    "Healthcare, education, and pharma fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Philadelphia web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Philadelphia businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — healthcare, education, and pharma. Philadelphia-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Greater Philadelphia's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Greater Philadelphia",
+  pageNumber: 147
+};
+
+// ============================================
+// 18. NASHVILLE
+// ============================================
+export const nashvilleLocation: LocationPageData = {
+  slug: "web-development-company-nashville",
+  title: "Web Development Company Nashville",
+  metaDescription: "Senior-led web development company serving Nashville and Middle Tennessee. Conversion-engineered sites for healthcare, music, and hospitality sectors. Fair, transparent pricing.",
+  city: "Nashville",
+  state: "TN",
+  region: "Middle Tennessee",
+  pageGoal: "Rank for \"web development company Nashville\" and related local terms; convert Nashville-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "Nashville-area healthcare, music & entertainment, hospitality, and fast-growing businesses seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Nashville and Middle Tennessee — senior-led, conversion-focused, and fluent in the healthcare, music, and hospitality sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["healthcare (industry hub)", "music & entertainment", "hospitality & tourism", "professional services", "startups"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving Nashville & Middle Tennessee",
+    "Healthcare, music, and hospitality fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Nashville web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Nashville businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — healthcare, music, and hospitality. Nashville-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Middle Tennessee's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Middle Tennessee",
+  pageNumber: 148
+};
+
+// ============================================
+// 19. CHARLOTTE
+// ============================================
+export const charlotteLocation: LocationPageData = {
+  slug: "web-development-company-charlotte",
+  title: "Web Development Company Charlotte",
+  metaDescription: "Senior-led web development company serving Charlotte and Charlotte Metro. Conversion-engineered sites for finance, banking, and fintech sectors. Fair, transparent pricing.",
+  city: "Charlotte",
+  state: "NC",
+  region: "Charlotte Metro",
+  pageGoal: "Rank for \"web development company Charlotte\" and related local terms; convert Charlotte-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "Charlotte-area finance & banking, fintech, energy, and B2B seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Charlotte and Charlotte Metro — senior-led, conversion-focused, and fluent in the finance, banking, and fintech sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["finance & banking", "fintech", "energy", "manufacturing", "B2B & professional services"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving Charlotte & Charlotte Metro",
+    "Finance, banking, and fintech fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Charlotte web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Charlotte businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — finance, banking, and fintech. Charlotte-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Charlotte Metro's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Charlotte Metro",
+  pageNumber: 149
+};
+
+// ============================================
+// 20. PORTLAND
+// ============================================
+export const portlandLocation: LocationPageData = {
+  slug: "web-development-company-portland",
+  title: "Web Development Company Portland",
+  metaDescription: "Senior-led web development company serving Portland and Portland Metro. Conversion-engineered sites for consumer brands, technology, and sustainability sectors. Fair, transparent pricing.",
+  city: "Portland",
+  state: "OR",
+  region: "Portland Metro",
+  pageGoal: "Rank for \"web development company Portland\" and related local terms; convert Portland-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "Portland-area outdoor & consumer brands, technology, sustainability-focused businesses, and creatives seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Portland and Portland Metro — senior-led, conversion-focused, and fluent in the consumer brands, technology, and sustainability sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["outdoor & consumer brands", "technology", "sustainability & green business", "manufacturing", "creative & design"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving Portland & Portland Metro",
+    "Consumer brands, technology, and sustainability fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Portland web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Portland businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — consumer brands, technology, and sustainability. Portland-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Portland Metro's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Portland Metro",
+  pageNumber: 150
+};
+
+// ============================================
+// 21. SAN ANTONIO
+// ============================================
+export const sanAntonioLocation: LocationPageData = {
+  slug: "web-development-company-san-antonio",
+  title: "Web Development Company San Antonio",
+  metaDescription: "Senior-led web development company serving San Antonio and San Antonio Metro. Conversion-engineered sites for healthcare, defense, and tourism sectors. Fair, transparent pricing.",
+  city: "San Antonio",
+  state: "TX",
+  region: "San Antonio Metro",
+  pageGoal: "Rank for \"web development company San Antonio\" and related local terms; convert San Antonio-area buyers with locally-relevant credibility; project value $10K–$150K+.",
+  buyerPersona: "San Antonio-area healthcare, military & defense, tourism, finance, and growing SMBs seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving San Antonio and San Antonio Metro — senior-led, conversion-focused, and fluent in the healthcare, defense, and tourism sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["healthcare & bioscience", "military & defense", "tourism & hospitality", "finance & insurance", "SMBs"],
+  pricingRange: "$10K–$150K+",
+  credibilityBar: [
+    "Serving San Antonio & San Antonio Metro",
+    "Healthcare, defense, and tourism fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a San Antonio web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For San Antonio businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — healthcare, defense, and tourism. San Antonio-area web development typically ranges $10K–$150K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands San Antonio Metro's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "San Antonio Metro",
+  pageNumber: 151
+};
+
+// ============================================
+// 22. TAMPA
+// ============================================
+export const tampaLocation: LocationPageData = {
+  slug: "web-development-company-tampa",
+  title: "Web Development Company Tampa",
+  metaDescription: "Senior-led web development company serving Tampa and Tampa Bay. Conversion-engineered sites for healthcare, finance, and tourism sectors. Fair, transparent pricing.",
+  city: "Tampa",
+  state: "FL",
+  region: "Tampa Bay",
+  pageGoal: "Rank for \"web development company Tampa\" and related local terms; convert Tampa-area buyers with locally-relevant credibility; project value $10K–$150K+.",
+  buyerPersona: "Tampa-area healthcare, finance, tourism, real estate, and growing tech seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Tampa and Tampa Bay — senior-led, conversion-focused, and fluent in the healthcare, finance, and tourism sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["healthcare", "finance & insurance", "tourism & hospitality", "real estate", "technology (growing)"],
+  pricingRange: "$10K–$150K+",
+  credibilityBar: [
+    "Serving Tampa & Tampa Bay",
+    "Healthcare, finance, and tourism fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Tampa web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Tampa businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — healthcare, finance, and tourism. Tampa-area web development typically ranges $10K–$150K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Tampa Bay's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Tampa Bay",
+  pageNumber: 152
+};
+
+// ============================================
+// 23. ORLANDO
+// ============================================
+export const orlandoLocation: LocationPageData = {
+  slug: "web-development-company-orlando",
+  title: "Web Development Company Orlando",
+  metaDescription: "Senior-led web development company serving Orlando and Greater Orlando. Conversion-engineered sites for tourism, hospitality, and healthcare sectors. Fair, transparent pricing.",
+  city: "Orlando",
+  state: "FL",
+  region: "Greater Orlando",
+  pageGoal: "Rank for \"web development company Orlando\" and related local terms; convert Orlando-area buyers with locally-relevant credibility; project value $10K–$150K+.",
+  buyerPersona: "Orlando-area tourism & hospitality, healthcare, technology/simulation, and consumer businesses seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Orlando and Greater Orlando — senior-led, conversion-focused, and fluent in the tourism, hospitality, and healthcare sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["tourism & hospitality", "healthcare", "technology & simulation", "consumer & retail", "SMBs"],
+  pricingRange: "$10K–$150K+",
+  credibilityBar: [
+    "Serving Orlando & Greater Orlando",
+    "Tourism, hospitality, and healthcare fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Orlando web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Orlando businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — tourism, hospitality, and healthcare. Orlando-area web development typically ranges $10K–$150K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Greater Orlando's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Greater Orlando",
+  pageNumber: 153
+};
+
+// ============================================
+// 24. MINNEAPOLIS
+// ============================================
+export const minneapolisLocation: LocationPageData = {
+  slug: "web-development-company-minneapolis",
+  title: "Web Development Company Minneapolis",
+  metaDescription: "Senior-led web development company serving Minneapolis and Twin Cities. Conversion-engineered sites for healthcare, retail, and finance sectors. Fair, transparent pricing.",
+  city: "Minneapolis",
+  state: "MN",
+  region: "Twin Cities",
+  pageGoal: "Rank for \"web development company Minneapolis\" and related local terms; convert Minneapolis-area buyers with locally-relevant credibility; project value $15K–$200K+.",
+  buyerPersona: "Minneapolis-area healthcare, retail, finance, manufacturing, and corporate buyers seeking a web development partner who understands the local market.",
+  uniquePositioning: "We're a web development company serving Minneapolis and Twin Cities — senior-led, conversion-focused, and fluent in the healthcare, retail, and finance sectors that define this market, delivering enterprise-grade work at fair, transparent pricing.",
+  primarySectors: ["healthcare & medical devices", "retail", "finance", "manufacturing", "corporate & B2B"],
+  pricingRange: "$15K–$200K+",
+  credibilityBar: [
+    "Serving Minneapolis & Twin Cities",
+    "Healthcare, retail, and finance fluency",
+    "Senior-led",
+    "Conversion-focused",
+    "You own the build"
+  ],
+  primaryCTA: "Book a Minneapolis web consultation",
+  secondaryCTA: "Request a local project estimate",
+  featuredAnswerBlock: "For Minneapolis businesses, the best web development partner combines senior engineering, conversion focus, and fluency in the local market's dominant sectors — healthcare, retail, and finance. Minneapolis-area web development typically ranges $15K–$200K+ depending on scope, from a custom marketing site to an enterprise platform or SaaS product. The right partner understands Twin Cities's economy and buyers, builds to convert, and prices transparently — whether based locally or serving the market with deep local understanding.",
+  schemaRecommendations: ["LocalBusiness", "Service", "Organization", "BreadcrumbList", "FAQPage"],
+  nearbyCities: "Twin Cities",
+  pageNumber: 154
+};
+
+// ============================================
 // MASTER LOCATION DATA OBJECT
 // ============================================
 export const locationData: Record<string, LocationPageData> = {
@@ -400,7 +760,19 @@ export const locationData: Record<string, LocationPageData> = {
   "web-development-company-atlanta": atlantaLocation,
   "web-development-company-los-angeles": losAngelesLocation,
   "web-development-company-new-york": newYorkLocation,
-  "web-development-company-houston": houstonLocation
+  "web-development-company-houston": houstonLocation,
+  "web-development-company-san-francisco": sanFranciscoLocation,
+  "web-development-company-san-diego": sanDiegoLocation,
+  "web-development-company-san-jose": sanJoseLocation,
+  "web-development-company-washington-dc": washingtonDcLocation,
+  "web-development-company-philadelphia": philadelphiaLocation,
+  "web-development-company-nashville": nashvilleLocation,
+  "web-development-company-charlotte": charlotteLocation,
+  "web-development-company-portland": portlandLocation,
+  "web-development-company-san-antonio": sanAntonioLocation,
+  "web-development-company-tampa": tampaLocation,
+  "web-development-company-orlando": orlandoLocation,
+  "web-development-company-minneapolis": minneapolisLocation
 };
 
 // ============================================

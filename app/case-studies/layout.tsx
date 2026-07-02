@@ -1,8 +1,7 @@
 // app/case-studies/layout.tsx
-"use client";
 import { Nav } from "@/components/studio/Nav";
 import { Footer } from "@/components/studio/Footer";
-import { Breadcrumb } from "@/components/costs/Breadcrumb";
+import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 
 export default function CaseStudiesLayout({
   children,
@@ -11,13 +10,12 @@ export default function CaseStudiesLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Specific Nav for this section if needed, or re-use existing */}
       <Nav />
 
-      <div className="border-b border-border/60 bg-surface-1/30 backdrop-blur-sm mt-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb 
-            homeLabel="Home"
+      {/* Breadcrumb - Below Nav */}
+      <div className="border-b border-white/[0.06] bg-surface-1/40 backdrop-blur-sm mt-[80px] md:mt-[100px]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <Breadcrumb
             customLabels={{
               'case-studies': 'Case Studies',
             }}
@@ -25,12 +23,12 @@ export default function CaseStudiesLayout({
           />
         </div>
       </div>
-      
-      {/* This renders your page.tsx content */}
+
+      {/* Main Content */}
       <main className="grow">
         {children}
       </main>
-      
+
       <Footer />
     </div>
   );
