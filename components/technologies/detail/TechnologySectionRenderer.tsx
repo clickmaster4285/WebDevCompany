@@ -2,7 +2,7 @@ import { TechnologyTable } from "./TechnologyTable";
 import { TechnologyOutcome } from "./TechnologyOutcome";
 import { TechnologyFAQ } from "./TechnologyFAQ";
 import { TechnologyCTA } from "./TechnologyCTA";
-import { createSectionId } from "./TechnologyTableOfContents";
+import { createSectionId } from "./createSectionId";
 
 type TechnologySectionRendererProps = {
   section: any;

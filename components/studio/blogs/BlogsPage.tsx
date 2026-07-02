@@ -3,7 +3,6 @@ import { Footer } from "@/components/studio/Footer";
 import { BlogsHero } from "./BlogsHero";
 import { BlogsSearch } from "./BlogsSearch";
 import { BlogsGrid } from "./BlogsGrid";
-import { Breadcrumb } from "@/components/costs/Breadcrumb";
 
 
 export function BlogsPage() {

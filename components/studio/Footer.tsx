@@ -28,10 +28,12 @@ export function Footer() {
                 }}
                 className="shrink-0"
               >
-               <Image
+           <Image
   src={footerImg}
   alt=""
   aria-hidden="true"
+  width={64}
+  height={64}
   className="h-auto w-16 object-contain"
 />
               </motion.div>

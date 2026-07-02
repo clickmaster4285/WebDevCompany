@@ -1,8 +1,9 @@
 "use client";
 
+import { technologies } from "@/data/technologies";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { ChevronDown, ArrowRight} from "lucide-react";
 import { Dropdown, DropdownSection } from "@/components/ui/Dropdown";
 import { serviceData } from "@/data/services";
 import { caseStudies } from "@/data/case-studies";
@@ -10,24 +11,21 @@ import { blogs } from "@/data/blogs";
 import { faqs, getFAQIcon } from "@/data/faqs";
 import { testimonials } from "@/data/resources/testimonials/testimonials";
 
-// Define service categories for Services dropdown (links only)
-// Get all services - ONLY title and slug, nothing else
+
 const allServices = Object.keys(serviceData).map((slug) => ({
   label: serviceData[slug].title,
   href: `/${slug}`,
 }));
 
-// Services dropdown - just one category with all services as simple links
 const serviceCategories: DropdownSection[] = [
   {
     title: "All Services",
     href: "/services",
-    description: "", // Empty description
+    description: "",
     items: allServices,
   },
 ];
 
-// Define resource categories for Resources dropdown (cards with metrics)
 const resourceCategories: DropdownSection[] = [
   {
     title: "Case Studies",
@@ -51,27 +49,30 @@ const resourceCategories: DropdownSection[] = [
     })),
   },
   {
-  title: "Blogs",
-  href: "/blogs",
-  description: "Latest insights, ideas, updates and industry articles.",
-  items: blogs.slice(0, 2).map((blog) => ({
-    label: blog.title,
-    href: `/blogs/${blog.slug}`,
-    tag: blog.category || "Insight",
-    icon: "✍️",
-    description: blog.excerpt || "",
-  })),
-},
+    title: "Blogs",
+    href: "/blogs",
+    description: "Latest insights, ideas, updates and industry articles.",
+    items: blogs.slice(0, 2).map((blog) => ({
+      label: blog.title,
+      href: `/blogs/${blog.slug}`,
+      tag: blog.category || "Insight",
+      icon: "✍️",
+      description: blog.excerpt || "",
+    })),
+  },
   {
     title: "FAQs",
     href: "/faqs",
     description: "Common questions about our process and services.",
-    items: faqs.slice(0, 2).map((faq) => ({
-      label: faq.question.length > 60 ? faq.question.slice(0, 60) + "..." : faq.question,
-      href: `/faqs#faq-item-${faqs.indexOf(faq)}`,
+    items: faqs.slice(0, 2).map((faq, index) => ({
+      label:
+        faq.question.length > 60
+          ? `${faq.question.slice(0, 60)}...`
+          : faq.question,
+      href: `/faqs#faq-item-${index}`,
       tag: faq.meta,
       icon: getFAQIcon(faq.meta),
-      description: faq.answer.slice(0, 80) + "...",
+      description: `${faq.answer.slice(0, 80)}...`,
     })),
   },
   {
@@ -80,14 +81,16 @@ const resourceCategories: DropdownSection[] = [
     description: "Client feedback and stories from successful projects.",
     items: testimonials.slice(0, 2).map((testimonial) => ({
       label: testimonial.name,
-      href: `/testimonials#${testimonial.name.toLowerCase().replace(/\s+/g, '-')}`,
+      href: `/testimonials#${testimonial.name
+        .toLowerCase()
+        .replace(/\s+/g, "-")}`,
       tag: testimonial.industry || "Client",
       icon: "⭐",
-      description: testimonial.description.slice(0, 80) + "...",
+      description: `${testimonial.description.slice(0, 80)}...`,
       metrics: {
-        ...(testimonial.company && { "Company": testimonial.company }),
-        ...(testimonial.rating && { "Rating": `${testimonial.rating}/5` }),
-      }
+        ...(testimonial.company && { Company: testimonial.company }),
+        ...(testimonial.rating && { Rating: `${testimonial.rating}/5` }),
+      },
     })),
   },
 ];
@@ -96,42 +99,85 @@ const technologiesCategories: DropdownSection[] = [
   {
     title: "Technologies",
     href: "/technologies",
-    description: "Modern frontend technologies and frameworks",
-    items: [
-      { label: "React", href: "/technologies/react" },
-      { label: "Next.js", href: "/technologies/nextjs" },
-      { label: "TypeScript", href: "/technologies/typescript" },
-      { label: "Tailwind CSS", href: "/technologies/tailwind" },
-      { label: "Vue.js", href: "/technologies/vue" },
-      { label: "Angular", href: "/technologies/angular" },
-    ],
+    description: "Explore the technologies we use to build modern products.",
+    items: technologies.map((technology) => ({
+      label: technology.title,
+      href: `/technologies/${technology.slug}`,
+      tag: technology.category,
+      icon: technology.icon || "⚙️",
+      description: technology.excerpt,
+    })),
   },
 ];
 
-// Industries data - single category like Technologies
 const industriesCategories: DropdownSection[] = [
   {
     title: "Industries",
     href: "/industries",
     description: "Industry-specific web development solutions",
     items: [
-      { label: "Healthcare Web Development", href: "/industries/healthcare-web-development" },
-      { label: "Law Firm Web Development", href: "/industries/law-firm-web-development" },
-      { label: "Real Estate Web Development", href: "/industries/real-estate-web-development" },
-      { label: "Fintech & Financial Services Web Development", href: "/industries/fintech-web-development" },
-      { label: "SaaS & Tech Web Development", href: "/industries/saas-web-development" },
-      { label: "Manufacturing Web Development", href: "/industries/manufacturing-web-development" },
-      { label: "eCommerce & Retail Web Development", href: "/industries/ecommerce-web-development" },
-      { label: "Hospitality Web Development", href: "/industries/hospitality-web-development" },
-      { label: "Education Web Development", href: "/industries/education-web-development" },
-      { label: "Dental Web Development", href: "/industries/dental-web-development" },
-      { label: "Construction Web Development", href: "/industries/construction-web-development" },
-      { label: "Nonprofit Web Development", href: "/industries/nonprofit-web-development" },
+      {
+        label: "Healthcare Web Development",
+        href: "/industries/healthcare-web-development",
+      },
+      {
+        label: "Law Firm Web Development",
+        href: "/industries/law-firm-web-development",
+      },
+      {
+        label: "Real Estate Web Development",
+        href: "/industries/real-estate-web-development",
+      },
+      {
+        label: "Fintech & Financial Services Web Development",
+        href: "/industries/fintech-web-development",
+      },
+      {
+        label: "SaaS & Tech Web Development",
+        href: "/industries/saas-web-development",
+      },
+      {
+        label: "Manufacturing Web Development",
+        href: "/industries/manufacturing-web-development",
+      },
+      {
+        label: "eCommerce & Retail Web Development",
+        href: "/industries/ecommerce-web-development",
+      },
+      {
+        label: "Hospitality Web Development",
+        href: "/industries/hospitality-web-development",
+      },
+      {
+        label: "Education Web Development",
+        href: "/industries/education-web-development",
+      },
+      {
+        label: "Dental Web Development",
+        href: "/industries/dental-web-development",
+      },
+      {
+        label: "Construction Web Development",
+        href: "/industries/construction-web-development",
+      },
+      {
+        label: "Nonprofit Web Development",
+        href: "/industries/nonprofit-web-development",
+      },
     ],
   },
 ];
+
+function DropdownTrigger({ label }: { label: string }) {
+  return (
+    <button className="inline-flex items-center rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-ink">
+      {label}
+      <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200" />
+    </button>
+  );
+}
+
 export function Nav() {
-  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -161,7 +207,6 @@ export function Nav() {
             scrolled ? "glass" : "bg-transparent"
           }`}
         >
-          {/* Solutions */}
           <Link
             href="/solutions"
             className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-ink"
@@ -169,13 +214,8 @@ export function Nav() {
             Solutions
           </Link>
 
-          {/* Services Dropdown - No Sidebar, No View All */}
           <Dropdown
-            trigger={
-              <button className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-ink">
-                Services <span className="ml-1">⌄</span>
-              </button>
-            }
+            trigger={<DropdownTrigger label="Services" />}
             sections={serviceCategories}
             variant="links"
             layout="simple-grid"
@@ -184,13 +224,8 @@ export function Nav() {
             showSidebar={false}
           />
 
-          {/* Resources Dropdown - With Sidebar, With View All */}
           <Dropdown
-            trigger={
-              <button className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-ink">
-                Resources <span className="ml-1">⌄</span>
-              </button>
-            }
+            trigger={<DropdownTrigger label="Resources" />}
             sections={resourceCategories}
             variant="cards"
             width="w-[980px]"
@@ -198,13 +233,8 @@ export function Nav() {
             showSidebar={true}
           />
 
-          {/* Technologies Dropdown - No Sidebar, With View All */}
           <Dropdown
-            trigger={
-              <button className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-ink">
-                Technologies <span className="ml-1">⌄</span>
-              </button>
-            }
+            trigger={<DropdownTrigger label="Technologies" />}
             sections={technologiesCategories}
             variant="links"
             layout="simple-grid"
@@ -212,13 +242,9 @@ export function Nav() {
             showViewAll={true}
             showSidebar={false}
           />
-          {/* industries Dropdown - No Sidebar, With View All */}
+
           <Dropdown
-            trigger={
-              <button className="rounded-full px-4 py-2 transition-colors hover:bg-white/5 hover:text-ink">
-                Industries <span className="ml-1">⌄</span>
-              </button>
-            }
+            trigger={<DropdownTrigger label="Industries" />}
             sections={industriesCategories}
             variant="links"
             layout="simple-grid"
@@ -229,14 +255,13 @@ export function Nav() {
         </nav>
 
         <Link
-          href="/contact"
-          className="group relative inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5"
-        >
-          Start a project
-          <span className="inline-block transition-transform group-hover:translate-x-0.5">
-            →
-          </span>
-        </Link>
+  href="/contact"
+  className="group relative inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-background transition-all duration-300 hover:-translate-y-0.5"
+>
+  <span>Start a project</span>
+
+  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
       </div>
     </header>
   );
