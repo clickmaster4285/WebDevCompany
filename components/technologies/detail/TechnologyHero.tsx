@@ -15,14 +15,7 @@ export function TechnologyHero({ technology }: TechnologyHeroProps) {
 
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div>
-          <Link
-            href="/technologies"
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-white/80 transition hover:bg-white/15 hover:text-white"
-          >
-            ← Technologies
-          </Link>
-
-          <p className="mt-8 text-sm font-bold uppercase tracking-[0.28em] text-violet">
+          <p className="text-sm font-bold uppercase tracking-[0.28em] text-violet">
             {technology.category}
           </p>
 

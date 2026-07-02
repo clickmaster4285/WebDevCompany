@@ -120,6 +120,19 @@ export default function CaseStudiesPage() {
     setCurrentPage(1);
   };
 
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.3 + i * 0.1,
+        ease: [0.25, 0.4, 0.25, 1] as const,
+      },
+    }),
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-[#030303]">
       <section className="relative w-full overflow-hidden">
@@ -273,14 +286,12 @@ export default function CaseStudiesPage() {
                 >
                   <CaseStudyCard
                     slug={study.slug || study.id}
-                   
                     category={study.category}
                     location={study.location}
                     title={study.title}
                     description={study.description}
                     techStack={study.techStack}
                     imageUrl={study.imageUrl}
-                    
                   />
                 </motion.div>
               ))}

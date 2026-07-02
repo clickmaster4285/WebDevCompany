@@ -75,7 +75,6 @@ export default async function CaseStudyDetailPage({
           <div className="lg:col-span-1 order-2 lg:order-1">
             <div className="sticky top-16 space-y-6">
               <CaseStudySidebar
-                projectDetails={study.projectDetails}
                 sections={sidebarSections}
               />
             </div>

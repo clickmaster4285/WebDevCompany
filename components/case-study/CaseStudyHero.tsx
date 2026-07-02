@@ -106,10 +106,22 @@ export function CaseStudyHero({
   readingTime,
   lastUpdated,
 }: CaseStudyHeroProps) {
-  const titleParts = title.split(" ");
-  const splitIndex = Math.ceil(titleParts.length / 2);
-  const firstTitlePart = titleParts.slice(0, splitIndex).join(" ");
-  const secondTitlePart = titleParts.slice(splitIndex).join(" ");
+  // Fix: Use proper Framer Motion variants with correct easing type
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5 + i * 0.2,
+        ease: "easeInOut" as const,
+      },
+    }),
+  };
+
+  // Split title for gradient effect
+  const titleParts = title.split(' ');
 
   return (
     <div className="relative flex min-h-screen w-full items-center justify-start overflow-hidden bg-[#030303]">
